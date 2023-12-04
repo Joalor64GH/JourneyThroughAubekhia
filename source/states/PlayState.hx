@@ -16,7 +16,7 @@ class PlayState extends FlxState
 
     public function new()
     {
-        super()
+        super();
     }
 
     override public function create()
