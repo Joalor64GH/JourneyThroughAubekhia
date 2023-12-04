@@ -3,7 +3,7 @@ package props;
 import flixel.FlxG;
 import flixel.FlxSprite;
 
-import utils.Vector;
+import util.Vector;
 
 class Player extends FlxSprite
 {

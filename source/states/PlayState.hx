@@ -3,7 +3,7 @@ package states;
 import flixel.addons.editors.ogmo.FlxOgmo3Loader;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
-import flixel.tile.TileMap;
+import flixel.tile.FlxTileMap;
 import flixel.FlxCamera;
 import flixel.FlxSprite;
 import flixel.FlxState;
