@@ -2,11 +2,12 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxGame;
+
 import openfl.display.Sprite;
 
 class Main extends Sprite
 {
-	public static var gameWidth:Int = 1280;
+	public static var gameWidth:Int = 720;
 	public static var gameHeight:Int = 720;
 
 	public function new()
