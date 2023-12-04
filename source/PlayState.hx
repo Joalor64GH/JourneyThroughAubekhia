@@ -2,6 +2,7 @@ package;
 
 import flixel.text.FlxText;
 import flixel.FlxState;
+import flixel.FlxG;
 
 class PlayState extends FlxState
 {
@@ -9,7 +10,7 @@ class PlayState extends FlxState
     {
         super.create();
 
-        var text = new flixel.text.FlxText(0, 0, 0, "Hello World", 64);
+        var text:FlxText = new FlxText(0, 0, 0, "Hello World", 64);
         text.screenCenter();
         add(text);
     }
