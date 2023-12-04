@@ -1,4 +1,4 @@
-package;
+package util;
 
 #if sys
 import sys.io.File;

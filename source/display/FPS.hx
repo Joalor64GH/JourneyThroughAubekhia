@@ -1,4 +1,4 @@
-package;
+package display;
 
 import haxe.Timer;
 import openfl.events.Event;
