@@ -51,5 +51,26 @@ class Player extends FlxSprite
 
         this.x += direction.dx * speed.dx;
         this.y += direction.dy * speed.dy;
+
+        if (FlxG.keys.justPressed.LEFT)
+        {
+            turnLeft(true);
+            velocity.x = -100 * 1;
+            animation.play("walk");
+        }
+        else if (FlxG.keys.justPressed.RIGHT)
+        {
+            turnRight(false);
+            velocity.x = 100 * 1;
+            animation.play("walk");
+        }
+        else
+        {
+            velocity.x = 0;
+            animation.play("idle");
+        }
+
+        if (FlxG.keys.justPressed.LEFT && FlxG.keys.justPressed.RIGHT)
+            FlxG.keys.justPressed.LEFT = FlxG.keys.justPressed.RIGHT = false;
     }
 }

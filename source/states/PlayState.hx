@@ -29,7 +29,7 @@ class PlayState extends FlxState
         text.screenCenter();
         add(text);
 
-        var player:Player = new Player(0, 0);
+        var player:Player = new Player(0, 0); // for testing
         player.screenCenter(X);
         add(player);
     }
