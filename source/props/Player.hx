@@ -45,6 +45,7 @@ class Player extends FlxSprite
         return flip;
     }
 
+    // will add jumping physics later
     override public function update(elapsed:Float)
     {
         super.update(elapsed);
@@ -69,8 +70,5 @@ class Player extends FlxSprite
             velocity.x = 0;
             animation.play("idle");
         }
-
-        if (FlxG.keys.justPressed.LEFT && FlxG.keys.justPressed.RIGHT)
-            FlxG.keys.justPressed.LEFT = FlxG.keys.justPressed.RIGHT = false;
     }
 }
