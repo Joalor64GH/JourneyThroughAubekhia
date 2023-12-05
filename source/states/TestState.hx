@@ -2,7 +2,7 @@ package states;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import display.Alphabet;
+import ui.Alphabet;
 
 class TestState extends FlxState
 {
