@@ -39,5 +39,8 @@ class MainMenuState extends FlxState
         {
             FlxG.switchState(new states.PlayState());
         }
+
+        if (FlxG.keys.justPressed.T)
+            FlxG.switchState(new states.TestState());
     }
 }
