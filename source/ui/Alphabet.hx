@@ -88,8 +88,6 @@ class AlphaCharacter extends FlxSprite
 {
     public static var alphabet:String = "abcdefghijklmnopqrstuvwxyz";
 
-    var frame:Int;
-
     public function new(x:Float, y:Float)
     {
         super(x, y);
@@ -99,6 +97,8 @@ class AlphaCharacter extends FlxSprite
 
     public function createLetter(letter:String)
     {
+        var frame:Int = 0;
+
         switch (letter)
         {
             case 'a':
@@ -153,6 +153,8 @@ class AlphaCharacter extends FlxSprite
                 frame = 24;
             case 'z':
                 frame = 25;
+            default:
+                // nothing idk
         }
         animation.add(letter, [frame], 1);
         animation.play(letter);
