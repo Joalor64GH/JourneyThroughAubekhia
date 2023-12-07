@@ -9,6 +9,8 @@ import openfl.display.Sprite;
 #if desktop
 import openfl.events.UncaughtErrorEvent;
 
+import lime.app.Application;
+
 import haxe.CallStack;
 import haxe.io.Path;
 
