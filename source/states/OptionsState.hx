@@ -8,12 +8,11 @@ import flixel.util.FlxColor;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
 import util.SaveData;
-import util.Localization;
 
 // scuffed at the moment, just a copy of freeplay for now
 class OptionsState extends FlxState
 {
-    var options:Array<String> = ["FPS Counter", "FPS Cap", "Language"];
+    var options:Array<String> = ["FPS Counter", "FPS Cap", "Language", "Fullscreen"];
     var group:FlxTypedGroup<FlxText>;
     var curSelected:Int = 0;
     var text:FlxText;
@@ -49,6 +48,8 @@ class OptionsState extends FlxState
                 text.text = FlxG.save.data.fpsCounter;
             case "FPS Cap":
                 text.text = FlxG.save.data.fpsCap;
+            case "Fullscreen":
+                text.text = FlxG.save.data.fullScreen;
             default:
                 text.text = "";
         }
@@ -68,6 +69,9 @@ class OptionsState extends FlxState
             {
                 case "FPS Counter":
                     FlxG.save.data.fpsCounter = !FlxG.save.data.fpsCounter;
+                case "Fullscreen":
+                    FlxG.save.data.fullScreen = !FlxG.save.data.fullScreen;
+                    FlxG.fullscreen = FlxG.save.data.fullScreen;
                 /*
                 case "Language":
                     openSubState(new LanguageSubState());
@@ -99,6 +103,8 @@ class OptionsState extends FlxState
                 text.text = FlxG.save.data.fpsCounter;
             case "FPS Cap":
                 text.text = FlxG.save.data.fpsCap;
+            case "Fullscreen":
+                text.text = FlxG.save.data.fullScreen;
             default:
                 text.text = "";
         }

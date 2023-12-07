@@ -8,7 +8,7 @@ class TestState extends FlxState
 {
     override public function create()
     {
-        var title:Alphabet = new Alphabet(0, 0, "Swagger");
+        var title:Alphabet = new Alphabet(0, 0, "swagger");
         title.screenCenter(XY);
         add(title);
 

@@ -2,9 +2,13 @@ package states;
 
 import flixel.FlxG;
 import flixel.FlxState;
+import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.ui.FlxButton;
 
 import lime.app.Application;
@@ -13,10 +17,11 @@ class MainMenuState extends FlxState
 {
     override public function create()
     {
-        var title:FlxText = new FlxText(0, 0, 0, "Journey Through Aubekhia", 12);
-        title.setFormat(Paths.font('vcr.ttf'), 64, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        title.screenCenter(X);
-        add(title);
+        var logo:FlxSprite = new FlxSprite(0, 20).loadGraphic(Paths.image('logo'));
+        logo.screenCenter(X);
+        add(logo);
+
+        logoTween();
 
         var button:FlxButton = new FlxButton(0, FlxG.height / 2 + 50, "Level Select", function() 
         {
@@ -56,5 +61,18 @@ class MainMenuState extends FlxState
             FlxG.switchState(new states.TestState());
         else if (FlxG.keys.justPressed.O)
             FlxG.switchState(new states.OptionsState());
+    }
+
+    function logoTween()
+    {
+        logo.angle = -4;
+
+        new FlxTimer().start(0.01, function(tmr:FlxTimer) 
+        {
+            if (logo.angle == -4)
+                FlxTween.angle(logo, logo.angle, 4, 4, {ease: FlxEase.quartInOut});
+            if (logo.angle == 4)
+                FlxTween.angle(logo, logo.angle, -4, 4, {ease: FlxEase.quartInOut});
+        }, 0);
     }
 }

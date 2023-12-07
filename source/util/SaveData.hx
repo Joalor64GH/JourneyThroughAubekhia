@@ -17,6 +17,9 @@ class SaveData
             FlxG.save.data.lang = 'en-us';
         */
 
+        if (FlxG.save.data.fullScreen == null)
+            FlxG.save.data.fullScreen = false;
+
         FlxG.save.bind('unreleased', 'joalor64');
     }
 }
