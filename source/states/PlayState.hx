@@ -8,6 +8,9 @@ import flixel.FlxCamera;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxG;
+
+import props.Coin;
+import props.Flag;
 import props.Player;
 
 class PlayState extends FlxState
@@ -32,6 +35,19 @@ class PlayState extends FlxState
         var player:Player = new Player(0, 0); // for testing
         player.screenCenter(X);
         add(player);
+    }
+
+    function placeEntities(entity:EntityData)
+    {
+        var x = entity.x;
+        var y = entity.y;
+
+        switch (entity.name)
+        {
+            case "player":
+                player.setPosition(x, y);
+
+        }
     }
 
     override public function update(elapsed:Float)
