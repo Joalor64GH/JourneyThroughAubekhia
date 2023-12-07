@@ -11,6 +11,11 @@ class SaveData
 
         if (FlxG.save.data.fpsCap == null)
             FlxG.save.data.fpsCap = 60;
+        
+        /*
+        if (FlxG.save.data.lang == null)
+            FlxG.save.data.lang = 'en-us';
+        */
 
         FlxG.save.bind('unreleased', 'joalor64');
     }

@@ -6,7 +6,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
-class FreeplayState extends FlxState
+class LevelSelectState extends FlxState
 {
     var levels:Array<String> = ["Level 1", "Level 2", "Level 3"]; // for testing
     var group:FlxTypedGroup<FlxText>;

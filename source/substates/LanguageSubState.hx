@@ -2,10 +2,14 @@ package substates;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.text.FlxText;
 import flixel.FlxSubState;
+import flixel.text.FlxText;
+import flixel.ui.FlxButton;
 
-class DialogueSubState extends FlxSubState
+import util.Localization;
+import util.SaveData;
+
+class PauseSubState extends FlxSubState
 {
     public function new()
     {

@@ -6,6 +6,8 @@ import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.FlxCamera;
 import flixel.FlxSprite;
+
+import flixel.FlxSubState;
 import flixel.FlxState;
 import flixel.FlxG;
 
@@ -54,7 +56,7 @@ class PlayState extends FlxState
 
         if (FlxG.keys.justPressed.ESCAPE)
         {
-            FlxG.switchState(new states.MainMenuState());
+            openSubState(new substates.PauseSubState());
         }
     }
 }
