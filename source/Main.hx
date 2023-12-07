@@ -34,7 +34,7 @@ class Main extends Sprite
 	{
 		super();
 
-		addChild(new FlxGame(gameWidth, gameHeight, states.PlayState, #if (flixel < "5.0.0") -1, #end 60, 60, false, false));
+		addChild(new FlxGame(gameWidth, gameHeight, states.BootingState, #if (flixel < "5.0.0") -1, #end 60, 60, false, false));
 		addChild(new display.FPS(10, 3, 0xFFFFFF));
 
 		#if desktop

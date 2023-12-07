@@ -6,9 +6,13 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
-class FreeplayState extends FlxState
+import util.SaveData;
+import util.Localization;
+
+// scuffed at the moment, just a copy of freeplay for now
+class OptionsState extends FlxState
 {
-    var levels:Array<String> = ["Level 1", "Level 2", "Level 3"]; // for testing
+    var levels:Array<String> = ["FPS Counter", "FPS Cap", "Language"];
     var group:FlxTypedGroup<FlxText>;
     var curSelected:Int = 0;
 
