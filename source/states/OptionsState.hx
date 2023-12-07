@@ -22,7 +22,7 @@ class OptionsState extends FlxState
     {
         super.create();
 
-        group = new FlxTypedGroup<FlxText>;
+        group = new FlxTypedGroup<FlxText>();
         add(group);
 
         for (i in 0...options.length)

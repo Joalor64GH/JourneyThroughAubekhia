@@ -7,6 +7,8 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.ui.FlxButton;
 
+import lime.app.Application;
+
 class MainMenuState extends FlxState
 {
     override public function create()
