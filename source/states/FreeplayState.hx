@@ -16,7 +16,7 @@ class FreeplayState extends FlxState
     {
         super.create();
 
-        group = new FlxTypedGroup<FlxText>;
+        group = new FlxTypedGroup<FlxText>();
         add(group);
 
         for (i in 0...levels.length)
