@@ -7,5 +7,6 @@ This game is a major WIP. If you want to help, don't hesitate to DM me on Discor
 * [ ] Coder
 * [ ] Composer
 * [ ] Artist
+* [ ] Tester
 
 BTW, I will credit you if you help.

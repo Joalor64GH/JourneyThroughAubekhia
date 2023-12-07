@@ -9,7 +9,7 @@ import flixel.ui.FlxButton;
 import util.Localization;
 import util.SaveData;
 
-class PauseSubState extends FlxSubState
+class LanguageSubState extends FlxSubState
 {
     public function new()
     {

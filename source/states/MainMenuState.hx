@@ -24,10 +24,15 @@ class MainMenuState extends FlxState
         button.screenCenter(X);
         add(button);
 
-        var daText:FlxText = new FlxText(5, FlxG.height - 24, 0, "Remind me to make a proper main menu later.", 12);
+        var daText:FlxText = new FlxText(5, FlxG.height - 44, 0, "Remind me to make a proper main menu later.", 12);
         daText.setFormat(Paths.font('vcr.ttf'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         daText.scrollFactor.set();
         add(daText);
+
+        var versionTxt:FlxText = new FlxText(5, FlxG.height - 24, 0, "v" + Application.current.meta.get("version"), 12);
+        versionTxt.setFormat(Paths.font('vcr.ttf'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        versionTxt.scrollFactor.set();
+        add(versionTxt);
 
         super.create();
     }
@@ -41,7 +46,7 @@ class MainMenuState extends FlxState
         #if desktop
         else if (FlxG.keys.justPressed.ESCAPE)
             openSubState(new substates.QuitSubState());
-        #else
+        #elseif html5
         Main.toast.create('Hey!', 0xFFFFFF00, "You can't do this on the browser port!");
         #end
 
