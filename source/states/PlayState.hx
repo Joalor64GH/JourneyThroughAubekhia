@@ -44,9 +44,7 @@ class PlayState extends FlxState
 
         switch (entity.name)
         {
-            case "player":
-                player.setPosition(x, y);
-
+            // nothing yet
         }
     }
 
