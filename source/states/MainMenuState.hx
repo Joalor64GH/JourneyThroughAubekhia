@@ -15,9 +15,11 @@ import lime.app.Application;
 
 class MainMenuState extends FlxState
 {
+    var logo:FlxSprite;
+
     override public function create()
     {
-        var logo:FlxSprite = new FlxSprite(0, 20).loadGraphic(Paths.image('logo'));
+        logo = new FlxSprite(0, 20).loadGraphic(Paths.image('logo'));
         logo.screenCenter(X);
         add(logo);
 
