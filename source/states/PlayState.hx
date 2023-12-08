@@ -39,6 +39,8 @@ class PlayState extends FlxState
 
         instance = this;
 
+        FlxG.camera.zoom = 2.25;
+
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
         add(bg);
 
@@ -55,10 +57,11 @@ class PlayState extends FlxState
         {
             hearts[i] = new FlxSprite().loadGraphic(Paths.image('hearts'), true, 16, 16);
             hearts[i].scrollFactor.set();
-            hearts[i].x += (i - 1) * 90;
+            hearts[i].x += (i - 1) * 4;
             hearts[i].animation.add("heart1", [0], 1);
             hearts[i].animation.add("heart2", [1], 1);
             hearts[i].animation.play("heart1");
+            hearts[i].scale.set(2, 2);
             add(hearts[i]);
         }
     }

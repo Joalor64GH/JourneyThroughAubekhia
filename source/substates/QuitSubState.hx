@@ -19,7 +19,6 @@ class QuitSubState extends FlxSubState
         var text:FlxText = new FlxText(0, 0, 0, "Quitting?\n\nPress ENTER to return.\nPress ESCAPE to quit game.", 64);
         text.setFormat(Paths.font('vcr.ttf'), 64, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.screenCenter(XY);
-        text.scale.set(2, 2);
         add(text);
     }
 

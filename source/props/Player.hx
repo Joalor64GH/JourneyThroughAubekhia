@@ -10,6 +10,9 @@ class Player extends FlxSprite
     public var direction:Vector = new Vector(0, 0);
     public var speed:Vector = new Vector(0, 0);
 
+    var inLeft:Bool = false;
+    var inRight:Bool = false;
+
     public function new(x:Float, y:Float)
     {
         super(x, y);
@@ -56,17 +59,25 @@ class Player extends FlxSprite
 
         if (FlxG.keys.justPressed.LEFT)
         {
+            inLeft = true;
             turnLeft(true);
             velocity.x = -100 * 1;
             animation.play("walk");
         }
-        else if (FlxG.keys.justPressed.RIGHT)
+        else
+            inLeft = false;
+        
+        if (FlxG.keys.justPressed.RIGHT)
         {
+            inRight = true;
             turnRight(false);
             velocity.x = 100 * 1;
             animation.play("walk");
         }
         else
+            inRight = false;
+
+        if (!inLeft && !inRight)
         {
             velocity.x = 0;
             animation.play("idle");
