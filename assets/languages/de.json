@@ -1,0 +1,14 @@
+{
+    "selectTxt": "Levelauswahl",
+    "optionsTxt": "Optionen",
+
+    "fpsCountTxt": "FPS-Zähler",
+    "fpsCapTxt": "FPS-Kappe",
+    "languageTxt": "Sprache",
+    "fullscreenTxt": "Ganzer Bildschirm",
+
+    "pointsTxt": "Punkte: ",
+    "coinsTxt": "Münzen: ",
+
+    "greeting": "Hallo Welt!"
+}

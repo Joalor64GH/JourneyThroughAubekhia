@@ -1,0 +1,14 @@
+{
+    "selectTxt": "Level Select",
+    "optionsTxt": "Options",
+
+    "fpsCountTxt": "FPS Counter",
+    "fpsCapTxt": "FPS Cap",
+    "languageTxt": "Language",
+    "fullscreenTxt": "Fullscreen",
+
+    "pointsTxt": "Points: ",
+    "coinsTxt": "Coins: ",
+
+    "greeting": "Hello World!"
+}

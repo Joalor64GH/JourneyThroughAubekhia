@@ -49,6 +49,7 @@ class PlayState extends FlxState
         // map = new FlxOgmo3Loader(Paths.ogmo('level'), Paths.json('levels/lev' + levNum));
 
         var text:FlxText = new FlxText(0, 0, 0, "Hello World", 64);
+        text.setFormat(Paths.font('vcr.ttf'), 64, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.screenCenter(X);
         add(text);
 

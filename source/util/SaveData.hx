@@ -12,10 +12,8 @@ class SaveData
         if (FlxG.save.data.fpsCap == null)
             FlxG.save.data.fpsCap = 60;
         
-        /*
         if (FlxG.save.data.lang == null)
             FlxG.save.data.lang = 'en';
-        */
 
         if (FlxG.save.data.fullScreen == null)
             FlxG.save.data.fullScreen = false;

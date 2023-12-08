@@ -1,0 +1,14 @@
+{
+    "selectTxt": "Sélection du niveau",
+    "optionsTxt": "Choix",
+
+    "fpsCountTxt": "Compteur FPS",
+    "fpsCapTxt": "Casquette FPS",
+    "languageTxt": "Langue",
+    "fullscreenTxt": "Plein écran",
+
+    "pointsTxt": "Points: ",
+    "coinsTxt": "Pièces de monnaie: ",
+
+    "greeting": "Bonjour le monde!"
+}

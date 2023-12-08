@@ -7,9 +7,6 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
-import util.SaveData;
-
-// scuffed at the moment, just a copy of freeplay for now
 class OptionsState extends FlxState
 {
     var options:Array<String> = ["FPS Counter", "FPS Cap", "Language", "Fullscreen"];
@@ -27,6 +24,7 @@ class OptionsState extends FlxState
         for (i in 0...options.length)
         {
             var optionTxt:FlxText = new FlxText(20, 20 + (i * 50), 0, options[i], 32);
+            optionTxt.setFormat(Paths.font('vcr.ttf'), 40, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
             optionTxt.ID = i;
             group.add(optionTxt);
         }
