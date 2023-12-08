@@ -21,6 +21,7 @@ class Player extends FlxSprite
         animation.add("jump", [2, 3], 1);
         animation.add("hurt", [4], 1);
         animation.add("oops", [5], 1);
+        animation.add("dance", [2, 0], 1);
 
         animation.play("idle");
     }
