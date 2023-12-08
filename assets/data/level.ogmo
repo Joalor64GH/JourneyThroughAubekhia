@@ -1,0 +1,157 @@
+{
+  "name": "Level",
+  "ogmoVersion": "3.4.0",
+  "levelPaths": ["."],
+  "backgroundColor": "#282c34ff",
+  "gridColor": "#3c4049cc",
+  "anglesRadians": true,
+  "directoryDepth": 5,
+  "layerGridDefaultSize": {"x": 8, "y": 8},
+  "levelDefaultSize": {"x": 320, "y": 240},
+  "levelMinSize": {"x": 128, "y": 128},
+  "levelMaxSize": {"x": 4096, "y": 4096},
+  "levelValues": [],
+  "defaultExportMode": ".json",
+  "compactExport": false,
+  "externalScript": "",
+  "playCommand": "",
+  "entityTags": [],
+  "layers": [
+    {
+      "definition": "entity",
+      "name": "Entities",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "06955187",
+      "requiredTags": [],
+      "excludedTags": []
+    },
+    {
+      "definition": "tile",
+      "name": "walls",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "06953956",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": ""
+    }
+  ],
+  "entities": [
+    {
+      "exportID": "06950644",
+      "name": "player",
+      "limit": -1,
+      "size": {"x": 16, "y": 16},
+      "origin": {"x": 0, "y": 0},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 16, "y": 16},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": [],
+      "values": [],
+      "texture": "../images/player.png",
+      "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAAQCAYAAADpunr5AAAAAXNSR0IArs4c6QAAAVxJREFUWEftWNERwiAMlUmczDGcwjGczEnw6JkepSEhebHlPP3yjj4S3iMvQLr8f6cykJjoWcmIw9QQFI8SgsaPwPc4KnNvxtoPc85y/JQWSDcAiC9zIwTMkr9LADV52podEVD8Qj4goIo9IH/zBqqVOnsB4fHLRiFB2/9MFW/i19/XwpX5NBe4Pu+sjb5uj517iAIgC1giAQRIjWC0AtH4RjylnH9GACMBoRWEVIDlEDO1BUUI8KmW1YqoMjULclSgq4epAqALQPEcEaMW1CPRgkfz1/AzHUNZC9EW0JCs2pDWQI8+hc12EUMJNB8DAy+ia+5knZyF0oYiC2QFsHRxbgEo3tLEvhHfmb/rGDulAE4CXMfAQAHjKgDdgSgeFQCN78Sr9sndxHs9YPgto+Oh0oPd7kGqbaROAtYKkN6qhLE6rJSjOGZt4tECaOSiJI3M7yWv1d07j+kx8Q2VboQgmo6UIgAAAABJRU5ErkJggg=="
+    },
+    {
+      "exportID": "06959044",
+      "name": "flag",
+      "limit": -1,
+      "size": {"x": 16, "y": 16},
+      "origin": {"x": 0, "y": 0},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 16, "y": 16},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": [],
+      "values": [],
+      "texture": "../images/flag-AB.png",
+      "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAAQCAYAAADpunr5AAAAAXNSR0IArs4c6QAAAatJREFUWEftl7FuwzAMROklgDu0S4Hkj9q1X9q5nxQgUwc7cAcXsk2Flk4iZQRwGyir9XjiHWXFDdXfrg40i/q4cRdbeGakpKYvGbk2p59ipG7IW5gU71itj9Dm5raBoaP+gLzB0bTUugfF/MJxURMvmZ76idX0ESM7QTwdnvwS1kkNZsQTkcYgfW/AOI7U/PTmEMINPAJ/ba7mFwEM0IVgHGLmVwFMI20MAQXw33lr7+gEugHc0n8UABdRR2E+rsU8T0gqQKQvp6odltesog8Z2VSC5xC8TsqIjf37cgsPT8Dx9UP1//z9BQNwDeT48+Vzrp0xIOQ9Q+Rra/qIkU2leB4AzQNNXzOQ+egO0IS5MNqAZr5mwN681Xy37l79r/6FWM1HG6Chy05+OBFhA3+Bd3u0eoACOL28a4Pvn0cnwEyuFxZ/Bxyf36YKUQCZDTAjOF6d1M8wUmnFGxnMDx2/VkusFN8Btwu1pACvdTej9SMi9SGV4xEj94n0NQbxJUzIyzvR7KGcAKuBqHhJAJUXDtQAZjN2G6AaQA1g3wlc3gb1BBRc4g91h/wCPIB3INrhkfUAAAAASUVORK5CYII="
+    },
+    {
+      "exportID": "06959968",
+      "name": "coin",
+      "limit": -1,
+      "size": {"x": 16, "y": 16},
+      "origin": {"x": 0, "y": 0},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 16, "y": 16},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": [],
+      "values": [],
+      "texture": "../images/coin.png",
+      "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAACm53kpAAAAAXNSR0IArs4c6QAAAMJJREFUWEftlssRgCAMROGAlVmG5VmGlekBRxk/g0BcEaOCR8ew7COSlSLzR2buX7gAaALKr6DZZrQm7EtTEYLADRDS3xvRfd8IpVryrwhA4AYI67sBdB4GtXnvAcAN8JJ+GgA8ADcAgP47AQAGdr1aAKx3GACwdEBsC329Hh6Dw9CIqppH5SFDXGlBboBOE6Eg4DE/lZwaQ48ADBiw9e+OwjMEJoDrISD6KXI9FEWtzcYAXJaC9FMAIKM08QFkIFZsBHXsyBHVvnGqAAAAAElFTkSuQmCC"
+    }
+  ],
+  "tilesets": [
+    {"label": "tilemap", "path": "../images/tilemap_1.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAICAYAAACLUr1bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE0SURBVDhPtZMhbwJBEIXnLsi2GoKrQjXkEuRZBIQE19r+geKLrak8RVKDRaIgWE6SnEChcE3xxdN9w+6yN7fbGvoly8y+C8nLm50oy7JTkiTkoygKGo1eiGZHrQiebmj1+kib/YE693UtUuneHa6JWgfuK+zqtJwMaDtd0MNzjyXZxzAHIxJobBzmlJEK0ELGXWBOGWFuT+cDoKlvMAFQfX2U5zn/Q5o0qaafba4Vk9rc27zPNcT4QyUIYKjzde43DZvq+10zmB76GJc0TVl08Wk+MEpz5N1of+EmJns2qFJkwcWn/QcmMVRfzyMOpQWTVx2xizPi36jhR22yfXOG0pv0LYTWMEa5xaCk6YWwC/IdXTSFSQsjlX1st1Vgtzu0rdBkqj4cI2wMB0DTqcp3d+kX9AMhO69ZWYvSrQAAAABJRU5ErkJggg==", "tileWidth": 8, "tileHeight": 8, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0}
+  ]
+}

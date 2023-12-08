@@ -1,6 +1,7 @@
 package states;
 
 import flixel.addons.editors.ogmo.FlxOgmo3Loader;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
@@ -21,17 +22,15 @@ class PlayState extends FlxState
     public var points:Int = FlxG.save.data.points;
     public var coins:Int = FlxG.save.data.coins;
 
-    var hearts:Array<FlxSprite> = [];
-
     var pointsTxt:FlxText;
     var coinsTxt:FlxText;
 
     var map:FlxOgmo3Loader;
+    var walls:FlxTilemap;
 
-    public function new()
-    {
-        super();
-    }
+    var player:Player;
+    var coin:FlxTypedGroup<Coin>;
+    var flag:Flag;
 
     override public function create()
     {
@@ -44,26 +43,23 @@ class PlayState extends FlxState
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
         add(bg);
 
-        var text:FlxText = new FlxText(0, 0, 0, "Hello World", 64);
-        text.setFormat(Paths.font('vcr.ttf'), 64, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        text.screenCenter(X);
-        add(text);
+        map = new FlxOgmo3Loader(Paths.file('data/level.ogmo'), Paths.json('levels/lev1'));
+        walls = map.loadTilemap(Paths.image('tilemap_1'), 'walls');
+        walls.follow();
+        walls.setTileProperties(1, NONE);
+        walls.setTileProperties(2, ANY);
+        add(walls);
 
-        var player:Player = new Player(0, 0); // for testing
-        player.screenCenter(XY);
+        player = new Player();
         add(player);
 
-        for (i in 0...4)
-        {
-            hearts[i] = new FlxSprite().loadGraphic(Paths.image('hearts'), true, 16, 16);
-            hearts[i].scrollFactor.set();
-            hearts[i].x += (i - 1) * 4;
-            hearts[i].animation.add("heart1", [0], 1);
-            hearts[i].animation.add("heart2", [1], 1);
-            hearts[i].animation.play("heart1");
-            hearts[i].scale.set(2, 2);
-            add(hearts[i]);
-        }
+        coin = new FlxTypedGroup<Coin>();
+        add(coin);
+
+        flag = new Flag();
+        add(flag);
+
+        map.loadEntities(placeEntities, 'entity');
     }
 
     function placeEntities(entity:EntityData)
@@ -73,6 +69,13 @@ class PlayState extends FlxState
 
         switch (entity.name)
         {
+            case "player":
+                player.setPosition(x, y);
+            case "coin":
+                coin.add(new Coin(x, y));
+            case "flag":
+                flag.x = x;
+                flag.y = y;
         }
     }
 
@@ -80,9 +83,10 @@ class PlayState extends FlxState
     {
         super.update(elapsed);
 
+        FlxG.collide(player, walls);
+        FlxG.camera.follow(player, LOCKON);
+
         if (FlxG.keys.justPressed.ESCAPE)
-        {
             openSubState(new substates.PauseSubState());
-        }
     }
 }
