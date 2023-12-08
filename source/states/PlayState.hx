@@ -50,9 +50,6 @@ class PlayState extends FlxState
         walls.setTileProperties(2, ANY);
         add(walls);
 
-        player = new Player();
-        add(player);
-
         coin = new FlxTypedGroup<Coin>();
         add(coin);
 
@@ -70,6 +67,7 @@ class PlayState extends FlxState
         switch (entity.name)
         {
             case "player":
+                add(player = new Player(x, y));
                 player.setPosition(x, y);
             case "coin":
                 coin.add(new Coin(x, y));
