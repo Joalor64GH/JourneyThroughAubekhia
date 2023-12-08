@@ -17,7 +17,7 @@ class Localization
 {
     private static var data:Map<String, Dynamic>;
     private static var currentLanguage:String;
-    private static var DEFAULT_LANGUAGE:String = "en-us";
+    private static var DEFAULT_LANGUAGE:String = "en";
 
     public static function loadLanguages(languages:Array<String>):Bool
     {
@@ -78,7 +78,7 @@ class Localization
         return false;
     }
 
-    public static function get(key:String, language:String = "en-us"):String
+    public static function get(key:String, language:String = "en"):String
     {
         var targetLanguage:String = language.toLowerCase();
         var languageData = data.get(targetLanguage);
