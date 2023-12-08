@@ -20,7 +20,7 @@ class MainMenuState extends FlxState
     {
         logo = new FlxSprite(0, 50).loadGraphic(Paths.image('logo'));
         logo.screenCenter(X);
-        logo.scale.set(3, 3);
+        logo.scale.set(2, 2);
         add(logo);
 
         logoTween();
