@@ -21,8 +21,6 @@ class PlayState extends FlxState
     public var points:Int = FlxG.save.data.points;
     public var coins:Int = FlxG.save.data.coins;
 
-    public var levNum:Int = 0;
-
     var hearts:Array<FlxSprite> = [];
 
     var pointsTxt:FlxText;
@@ -30,11 +28,9 @@ class PlayState extends FlxState
 
     var map:FlxOgmo3Loader;
 
-    public function new(/*levNum:Int = 0*/)
+    public function new()
     {
         super();
-
-        // this.levNum = levNum;
     }
 
     override public function create()
@@ -45,8 +41,6 @@ class PlayState extends FlxState
 
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
         add(bg);
-
-        // map = new FlxOgmo3Loader(Paths.ogmo('level'), Paths.json('levels/lev' + levNum));
 
         var text:FlxText = new FlxText(0, 0, 0, "Hello World", 64);
         text.setFormat(Paths.font('vcr.ttf'), 64, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
