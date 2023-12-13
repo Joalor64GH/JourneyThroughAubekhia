@@ -20,8 +20,7 @@ import sys.FileSystem;
 #end
 
 import display.ToastCore;
-
-import util.SaveData;
+import display.FPS;
 
 using StringTools;
 
@@ -37,9 +36,11 @@ class Main extends Sprite
 		super();
 
 		addChild(new FlxGame(gameWidth, gameHeight, states.BootingState, #if (flixel < "5.0.0") -1, #end 60, 60, false, false));
-		
-		if (FlxG.save.data.fpsCounter)
-			addChild(new display.FPS(10, 3, 0xFFFFFF));
+
+		var fps:FPS;
+		fps = new FPS(10, 3, 0xFFFFFF);
+		fps.visible = FlxG.save.data.fpsCounter;
+		addChild(fps);
 
 		#if desktop
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
