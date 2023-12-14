@@ -2,7 +2,6 @@
 import Paths;
 
 import util.CoolUtil;
-import util.Controls;
 import util.Localization;
 import util.SaveData;
 
