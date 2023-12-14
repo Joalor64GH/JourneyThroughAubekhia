@@ -38,5 +38,7 @@ class Controls
         ENTER.update();
         SPACE.update();
         ESCAPE.update();
+
+        super.update();
     }
 }
