@@ -29,7 +29,8 @@ class OptionsState extends FlxState
             group.add(optionTxt);
         }
 
-        text = new FlxText(0, 20, 0, "", 12);
+        text = new FlxText(curSelected + 30, 20, 0, "", 12);
+        text.setFormat(Paths.font('vcr.ttf'), 20, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.scrollFactor.set();
         add(text);
 

@@ -38,6 +38,18 @@ class LevelSelectState extends FlxState
 
         if (FlxG.keys.justPressed.ESCAPE)
             FlxG.switchState(new states.MainMenuState());
+
+        if (FlxG.keys.justPressed.ENTER)
+        {
+            switch (levels[curSelected])
+            {
+                case "Level 1":
+                    FlxG.switchState(new states.PlayState());
+                    
+                case "Level 2" | "Level 3":
+                    Main.toast.create('Nope.', 0xFFFFFF00, "This isn't finished yet.");
+            }
+        }
     }
 
     function changeSelection(change:Int = 0)

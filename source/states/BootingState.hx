@@ -10,9 +10,11 @@ class BootingState extends FlxState
     override public function create()
     {
         SaveData.init();
+        Controls.init();
+
         Localization.loadLanguages(["de", "en", "es", "fr", "it"]);
 
-        FlxG.switchState(new states.MainMenuState());
+        FlxG.switchState(new states.DemoState());
         super.create();
     }
 

@@ -20,11 +20,11 @@ class Player extends FlxSprite
         loadGraphic(Paths.image('player'), true, 16, 16);
 
         animation.add("idle", [0], 1);
-        animation.add("walk", [1, 0], 1);
-        animation.add("jump", [2, 3], 1);
+        animation.add("walk", [1, 0], 12);
+        animation.add("jump", [2, 3], 12);
         animation.add("hurt", [4], 1);
         animation.add("oops", [5], 1);
-        animation.add("dance", [2, 0], 1);
+        animation.add("dance", [2, 0], 12);
 
         animation.play("idle");
     }
@@ -57,7 +57,7 @@ class Player extends FlxSprite
         this.x += direction.dx * speed.dx;
         this.y += direction.dy * speed.dy;
 
-        if (FlxG.keys.justPressed.LEFT)
+        if (Controls.LEFT.justPressed())
         {
             inLeft = true;
             turnLeft(true);
@@ -67,7 +67,7 @@ class Player extends FlxSprite
         else
             inLeft = false;
         
-        if (FlxG.keys.justPressed.RIGHT)
+        if (Controls.RIGHT.justPressed())
         {
             inRight = true;
             turnRight(false);

@@ -19,8 +19,7 @@ class PauseSubState extends FlxSubState
         add(bg);
 
         var text:FlxText = new FlxText(0, 0, 0, "Paused?\n\nPress ENTER to return.\nPress ESCAPE to return to menu.", 64);
-        text.setFormat(Paths.font('vcr.ttf'), 64, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        text.scrollFactor.set();
+        text.setFormat(Paths.font('vcr.ttf'), 30, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.screenCenter(XY);
         add(text);
     }

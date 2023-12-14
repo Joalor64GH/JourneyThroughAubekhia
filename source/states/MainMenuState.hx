@@ -69,12 +69,6 @@ class MainMenuState extends FlxState
     override public function update(elapsed:Float)
     {
         super.update(elapsed);
-
-        if (FlxG.keys.justPressed.ENTER)
-            FlxG.switchState(new states.PlayState());
-
-        if (FlxG.keys.justPressed.T)
-            FlxG.switchState(new states.TestState());
     }
 
     function logoTween()

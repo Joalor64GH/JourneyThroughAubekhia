@@ -4,11 +4,11 @@ import flixel.FlxG;
 import flixel.FlxState;
 import ui.Alphabet;
 
-class TestState extends FlxState
+class DemoState extends FlxState
 {
     override public function create()
     {
-        var title:Alphabet = new Alphabet(0, 0, "swagger");
+        var title:Alphabet = new Alphabet(0, 0, "hey you\nthis game is a demo\nwhich mean its not finished yet\npress anything to continue");
         title.screenCenter(XY);
         add(title);
 
@@ -19,9 +19,7 @@ class TestState extends FlxState
     {
         super.update(elapsed);
 
-        if (FlxG.keys.justPressed.ESCAPE)
-        {
+        if (FlxG.keys.justPressed.ANY || FlxG.mouse.justPressed)
             FlxG.switchState(new states.MainMenuState());
-        }
     }
 }
