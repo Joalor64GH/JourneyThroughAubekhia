@@ -24,13 +24,13 @@ class OptionsState extends FlxState
         for (i in 0...options.length)
         {
             var optionTxt:FlxText = new FlxText(20, 20 + (i * 50), 0, options[i], 32);
-            optionTxt.setFormat(Paths.font('vcr.ttf'), 40, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+            optionTxt.setFormat(Paths.font('vcr'), 40, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
             optionTxt.ID = i;
             group.add(optionTxt);
         }
 
         text = new FlxText(curSelected + 30, 20, 0, "", 12);
-        text.setFormat(Paths.font('vcr.ttf'), 20, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        text.setFormat(Paths.font('vcr'), 20, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.scrollFactor.set();
         add(text);
 

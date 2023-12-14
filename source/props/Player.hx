@@ -57,7 +57,7 @@ class Player extends FlxSprite
         this.x += direction.dx * speed.dx;
         this.y += direction.dy * speed.dy;
 
-        if (Controls.LEFT.justPressed())
+        if (FlxG.keys.justPressed.LEFT)
         {
             inLeft = true;
             turnLeft(true);
@@ -67,7 +67,7 @@ class Player extends FlxSprite
         else
             inLeft = false;
         
-        if (Controls.RIGHT.justPressed())
+        if (FlxG.keys.justPressed.RIGHT)
         {
             inRight = true;
             turnRight(false);

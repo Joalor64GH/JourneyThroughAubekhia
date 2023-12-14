@@ -7,6 +7,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 class Paths
 {
 	inline public static final SOUND_EXT = #if !html5 "ogg" #else "mp3" #end;
+	inline public static final FONT_EXT = #if !html5 "ttf" #else "woff" #end;
 
 	static var currentLevel:String;
 
@@ -34,11 +35,6 @@ class Paths
 		return file('data/$key.json');
 	}
 
-	inline static public function ogmo(key:String)
-	{
-		return file('data/$key.ogmo');
-	}
-
 	inline static public function sound(key:String)
 	{
 		return file('sounds/$key.$SOUND_EXT');
@@ -61,7 +57,7 @@ class Paths
 
 	inline static public function font(key:String)
 	{
-		return file('fonts/$key');
+		return file('fonts/$key.$FONT_EXT');
 	}
 
 	inline static public function getSparrowAtlas(key:String)
