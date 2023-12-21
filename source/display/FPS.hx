@@ -75,7 +75,6 @@ class FPS extends TextField
 
 		var currentCount = times.length;
 		currentFPS = Math.round((currentCount + cacheCount) / 2);
-		if (currentFPS > FlxG.save.data.fpsCap) currentFPS = FlxG.save.data.fpsCap;
 
 		if (currentCount != cacheCount)
 		{

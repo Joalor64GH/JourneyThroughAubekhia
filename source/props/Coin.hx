@@ -11,7 +11,7 @@ class Coin extends FlxSprite
 
         loadGraphic(Paths.image('coin'), true, 16, 16);
 
-        animation.add("floating", [0, 1, 2, 3], 1, true);
+        animation.add("floating", [0, 1, 2, 3], 12, true);
 
         animation.play("floating");
     }

@@ -39,8 +39,9 @@ class Main extends Sprite
 
 		var fps:FPS;
 		fps = new FPS(10, 3, 0xFFFFFF);
-		fps.visible = FlxG.save.data.fpsCounter;
 		addChild(fps);
+		if (fps != null)
+			fps.visible = FlxG.save.data.fpsCounter;
 
 		#if desktop
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);

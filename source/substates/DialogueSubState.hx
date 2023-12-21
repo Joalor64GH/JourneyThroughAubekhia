@@ -16,7 +16,7 @@ class DialogueSubState extends FlxSubState
     var dialogue:Array<String> = [];
     var diaTxt:FlxText;
 
-    public function new(dialogue:Array<String>)
+    public function new(dialogue:Array<String> = [])
     {
         super();
 

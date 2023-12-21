@@ -8,9 +8,6 @@ class SaveData
     {
         if (FlxG.save.data.fpsCounter == null)
             FlxG.save.data.fpsCounter = true;
-
-        if (FlxG.save.data.fpsCap == null)
-            FlxG.save.data.fpsCap = 60;
         
         if (FlxG.save.data.lang == null)
             FlxG.save.data.lang = 'en';

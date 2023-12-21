@@ -19,7 +19,7 @@ class DemoState extends FlxState
     {
         super.update(elapsed);
 
-        if (FlxG.keys.justPressed.ANY || FlxG.mouse.justPressed)
+        if (FlxG.keys.justPressed.ANY)
             FlxG.switchState(new states.MainMenuState());
     }
 }

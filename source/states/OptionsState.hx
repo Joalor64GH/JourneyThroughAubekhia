@@ -9,7 +9,8 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 
 class OptionsState extends FlxState
 {
-    var options:Array<String> = ["FPS Counter", "FPS Cap", "Language", "Fullscreen"];
+    var options:Array<String> = ["FPS Counter", "Language", "Fullscreen"];
+    
     var group:FlxTypedGroup<FlxText>;
     var curSelected:Int = 0;
     var text:FlxText;
@@ -45,8 +46,6 @@ class OptionsState extends FlxState
         {
             case "FPS Counter":
                 text.text = FlxG.save.data.fpsCounter;
-            case "FPS Cap":
-                text.text = FlxG.save.data.fpsCap;
             case "Fullscreen":
                 text.text = FlxG.save.data.fullScreen;
             default:
@@ -77,14 +76,6 @@ class OptionsState extends FlxState
                 */
             }
         }
-
-        if (options[curSelected] == "FPS Cap")
-        {
-            if (FlxG.keys.justPressed.RIGHT)
-                FlxG.save.data.fpsCap += 1;
-            else if (FlxG.keys.justPressed.LEFT)
-                FlxG.save.data.fpsCap -= 1;
-        }
     }
 
     function changeSelection(change:Int = 0)
@@ -100,8 +91,6 @@ class OptionsState extends FlxState
         {
             case "FPS Counter":
                 text.text = FlxG.save.data.fpsCounter;
-            case "FPS Cap":
-                text.text = FlxG.save.data.fpsCap;
             case "Fullscreen":
                 text.text = FlxG.save.data.fullScreen;
             default:
