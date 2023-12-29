@@ -38,12 +38,12 @@ class Player extends FlxSprite
 
         animation.play((velocity.x != 0) ? "walk" : "idle");
 
-        if (FlxG.keys.justPressed.LEFT)
+        if (FlxG.keys.LEFT)
         {
             velocity.x = -speed.dx;
             turnLeft(true);
         }
-        else if (FlxG.keys.justPressed.RIGHT)
+        else if (FlxG.keys.RIGHT)
         {
             velocity.x = speed.dx;
             turnRight(false);

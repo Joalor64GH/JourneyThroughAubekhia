@@ -47,7 +47,7 @@ class Alphabet extends FlxSpriteGroup
 
             if (character == "\n")
             {
-                yPos += 20;
+                yPos += 5;
                 xPos = 0;
                 lastWasSpace = false;
                 continue;
@@ -60,7 +60,7 @@ class Alphabet extends FlxSpriteGroup
 
                 if (lastWasSpace)
                 {
-                    xPos += 40;
+                    xPos += 10;
                     lastWasSpace = false;
                 }
 

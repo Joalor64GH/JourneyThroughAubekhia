@@ -22,8 +22,7 @@ class PlayState extends FlxState
     public var points:Int = FlxG.save.data.points;
     public var coins:Int = FlxG.save.data.coins;
 
-    var pointsTxt:FlxText;
-    var coinsTxt:FlxText;
+    var scoreTxt:FlxText;
 
     var map:FlxOgmo3Loader;
     var walls:FlxTilemap;
@@ -57,6 +56,12 @@ class PlayState extends FlxState
         walls.setTileProperties(2, ANY);
         add(walls);
 
+        scoreTxt = new FlxText(0, 0, 0, "Score: " + points + "\n" + "Coins: " + coins, 12);
+        scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreTxt.cameras = [camHUD];
+        scoreTxt.scrollFactor.set();
+        add(scoreTxt);
+
         coin = new FlxTypedGroup<Coin>();
         add(coin);
 
@@ -88,10 +93,38 @@ class PlayState extends FlxState
     {
         super.update(elapsed);
 
+        scoreTxt.text = "Score: " + points + "\n" + "Coins: " + coins;
+
         FlxG.collide(player, walls);
         FlxG.camera.follow(player, LOCKON, 0.9);
 
+        FlxG.overlap(player, coin, touchCoin);
+        FlxG.overlap(player, flag, touchFlag);
+
         if (FlxG.keys.justPressed.ESCAPE)
+        {
             openSubState(new substates.PauseSubState());
+            persistentUpdate = false;
+        }
+    }
+
+    function touchCoin(player:Player, coin:Coin)
+    {
+        if (player.alive && player.exists && coin.alive && coin.exists)
+        {
+            points += 50;
+            coins += 1;
+            coin.kill();
+        }
+    }
+
+    function touchFlag(player:Player, flag:Flag)
+    {
+        if (player.alive && player.exists && flag.alive && flag.exists)
+        {
+            FlxG.save.flush();
+            FlxG.switchState(new states.MainMenuState());
+            flag.animation.play("stop");
+        }
     }
 }
