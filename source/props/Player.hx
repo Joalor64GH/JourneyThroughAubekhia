@@ -2,14 +2,15 @@ package props;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+
 import util.Vector;
 
 class Player extends FlxSprite
 {
     public var direction:Vector = new Vector(0, 0);
-    public var speed:Vector = new Vector(0, 0);
+    public var speed:Vector = new Vector(150, 0);
 
-    private var jumpPower:Int = -200;
+    private var remainingJumps:Int = 2;
 
     public function new(x:Float, y:Float)
     {
@@ -38,22 +39,31 @@ class Player extends FlxSprite
 
         animation.play((velocity.x != 0) ? "walk" : "idle");
 
-        if (FlxG.keys.LEFT)
+        if (FlxG.keys.anyPressed([LEFT, A]))
         {
             velocity.x = -speed.dx;
             turnLeft(true);
         }
-        else if (FlxG.keys.RIGHT)
+        else if (FlxG.keys.anyPressed([RIGHT, D]))
         {
             velocity.x = speed.dx;
             turnRight(false);
         }
 
-        if (FlxG.keys.justPressed.UP && isTouching(FLOOR)) 
+        if (FlxG.keys.anyPressed([W, UP, SPACE]) && isTouching(FLOOR)) 
         {
-            velocity.y = jumpPower;
-            animation.play("jump");
+            if (remainingJumps > 0)
+            {
+                if (!isTouching(FLOOR))
+                    remainingJumps--;
+
+                velocity.y = -200;
+                animation.play("jump");
+            }
         }
+
+        if (isTouching(FLOOR))
+            remainingJumps = 2;
     }
 
     public function turnRight(flip:Bool = true):Bool
