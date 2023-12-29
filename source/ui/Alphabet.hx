@@ -30,9 +30,7 @@ class Alphabet extends FlxSpriteGroup
         finalText = text;
 
         if (text != "")
-        {
             addText();
-        }
     }
 
     public function addText()
@@ -40,20 +38,25 @@ class Alphabet extends FlxSpriteGroup
         splitWords = finalText.split("");
 
         var xPos:Float = 0;
+        var yPos:Float = 0;
 
         for (character in splitWords)
         {
             if (character == " ")
-            {
                 lastWasSpace = true;
+
+            if (character == "\n")
+            {
+                yPos += 20;
+                xPos = 0;
+                lastWasSpace = false;
+                continue;
             }
 
             if (AlphaCharacter.alphabet.indexOf(character.toLowerCase()) != -1)
             {
                 if (lastSprite != null)
-                {
                     xPos = lastSprite.x + lastSprite.width;
-                }
 
                 if (lastWasSpace)
                 {

@@ -37,10 +37,10 @@ class Main extends Sprite
 
 		addChild(new FlxGame(gameWidth, gameHeight, states.BootingState, #if (flixel < "5.0.0") -1, #end 60, 60, false, false));
 
-		var fps:FPS;
-		fps = new FPS(10, 3, 0xFFFFFF);
+		var fps:FPS = new FPS(10, 3, 0xFFFFFF);
 		addChild(fps);
-		if (fps != null)
+		
+		if (fps != null && FlxG.save.data.fpsCounter != null)
 			fps.visible = FlxG.save.data.fpsCounter;
 
 		#if desktop

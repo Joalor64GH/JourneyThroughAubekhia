@@ -2,7 +2,6 @@ package props;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-
 import util.Vector;
 
 class Player extends FlxSprite
@@ -10,8 +9,7 @@ class Player extends FlxSprite
     public var direction:Vector = new Vector(0, 0);
     public var speed:Vector = new Vector(0, 0);
 
-    var inLeft:Bool = false;
-    var inRight:Bool = false;
+    private var jumpPower:Int = -200;
 
     public function new(x:Float, y:Float)
     {
@@ -27,60 +25,46 @@ class Player extends FlxSprite
         animation.add("dance", [2, 0], 12);
 
         animation.play("idle");
+
+        acceleration.y = 420; // nice
+        drag.x = 400;
     }
 
-    public function turnRight(flip:Bool = true)
-    {
-        flipX = flip;
-
-        if (this.flipX)
-            this.flipX = false;
-
-        return flip;
-    }
-
-    public function turnLeft(flip:Bool = false)
-    {
-        flipX = flip;
-
-        if (!this.flipX)
-            this.flipX = false;
-
-        return flip;
-    }
-
-    // will add jumping physics later
     override public function update(elapsed:Float)
     {
         super.update(elapsed);
 
-        this.x += direction.dx * speed.dx;
-        this.y += direction.dy * speed.dy;
+        velocity.x = 0;
+
+        animation.play((velocity.x != 0) ? "walk" : "idle");
 
         if (FlxG.keys.justPressed.LEFT)
         {
-            inLeft = true;
+            velocity.x = -speed.dx;
             turnLeft(true);
-            velocity.x = -100 * 1;
-            animation.play("walk");
         }
-        else
-            inLeft = false;
-        
-        if (FlxG.keys.justPressed.RIGHT)
+        else if (FlxG.keys.justPressed.RIGHT)
         {
-            inRight = true;
+            velocity.x = speed.dx;
             turnRight(false);
-            velocity.x = 100 * 1;
-            animation.play("walk");
         }
-        else
-            inRight = false;
 
-        if (!inLeft && !inRight)
+        if (FlxG.keys.justPressed.UP && isTouching(FLOOR)) 
         {
-            velocity.x = 0;
-            animation.play("idle");
+            velocity.y = jumpPower;
+            animation.play("jump");
         }
+    }
+
+    public function turnRight(flip:Bool = true):Bool
+    {
+        flipX = flip;
+        return flip;
+    }
+
+    public function turnLeft(flip:Bool = false):Bool
+    {
+        flipX = flip;
+        return flip;
     }
 }

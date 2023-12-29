@@ -32,15 +32,22 @@ class PlayState extends FlxState
     var coin:FlxTypedGroup<Coin>;
     var flag:Flag;
 
+    var camHUD:FlxCamera;
+
     override public function create()
     {
         super.create();
 
         instance = this;
 
+        camHUD = new FlxCamera();
+        camHUD.bgColor = 0;
+        FlxG.cameras.add(camHUD, false);
+
         FlxG.camera.zoom = 2.25;
 
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
+        bg.scrollFactor.set();
         add(bg);
 
         map = new FlxOgmo3Loader(Paths.file('data/level.ogmo'), Paths.json('levels/lev1'));
@@ -82,7 +89,7 @@ class PlayState extends FlxState
         super.update(elapsed);
 
         FlxG.collide(player, walls);
-        FlxG.camera.follow(player, LOCKON);
+        FlxG.camera.follow(player, LOCKON, 0.9);
 
         if (FlxG.keys.justPressed.ESCAPE)
             openSubState(new substates.PauseSubState());

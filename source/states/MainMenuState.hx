@@ -54,7 +54,7 @@ class MainMenuState extends FlxState
         add(button3);
 
         var daText:FlxText = new FlxText(5, FlxG.height - 44, 0, "Remind me to make a proper main menu later.", 12);
-        daText.setFormat(Paths.font('vcr.ttf'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        daText.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         daText.scrollFactor.set();
         add(daText);
 
@@ -71,7 +71,7 @@ class MainMenuState extends FlxState
         super.update(elapsed);
     }
 
-    function logoTween()
+    private function logoTween()
     {
         logo.angle = -4;
 
