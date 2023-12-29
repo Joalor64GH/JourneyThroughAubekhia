@@ -51,7 +51,7 @@ class Player extends FlxSprite
             turnRight(false);
         }
 
-        if (touchingFloor)
+        if (isTouching(FLOOR))
             timesJumped = 0;
 
         if (FlxG.keys.anyJustPressed([W, UP, SPACE]) && (timesJumped < allowedJumps || isTouching(FLOOR)))
