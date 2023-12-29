@@ -7,10 +7,11 @@ import util.Vector;
 
 class Player extends FlxSprite
 {
-    public var direction:Vector = new Vector(0, 0);
     public var speed:Vector = new Vector(150, 0);
 
-    private var remainingJumps:Int = 2;
+    var jumpSpeed:Int = 250;
+    var timesJumped:Int = 0;
+    var allowedJumps:Int = 2;
 
     public function new(x:Float, y:Float)
     {
@@ -50,29 +51,23 @@ class Player extends FlxSprite
             turnRight(false);
         }
 
-        if (FlxG.keys.anyPressed([W, UP, SPACE]) && isTouching(FLOOR)) 
+        if (touchingFloor)
+            timesJumped = 0;
+
+        if (FlxG.keys.anyJustPressed([W, UP, SPACE]) && (timesJumped < allowedJumps || isTouching(FLOOR)))
         {
-            if (remainingJumps > 0)
-            {
-                if (!isTouching(FLOOR))
-                    remainingJumps--;
-
-                velocity.y = -200;
-                animation.play("jump");
-            }
+            velocity.y = -0.6 * maxVelocity.y;
+            timesJumped++;
         }
-
-        if (isTouching(FLOOR))
-            remainingJumps = 2;
     }
 
-    public function turnRight(flip:Bool = true):Bool
+    function turnRight(flip:Bool = true):Bool
     {
         flipX = flip;
         return flip;
     }
 
-    public function turnLeft(flip:Bool = false):Bool
+    function turnLeft(flip:Bool = false):Bool
     {
         flipX = flip;
         return flip;
