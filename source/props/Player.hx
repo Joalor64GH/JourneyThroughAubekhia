@@ -53,17 +53,19 @@ class Player extends FlxSprite
             turnRight(false);
         }
 
-        if (!isTouching(FLOOR))
-            acceleration.y = 420;
-
-        if (isTouching(FLOOR))
+        if (isTouching(FLOOR)) 
+        {
             timesJumped = 0;
+            acceleration.y = 0;
+        }
+        else
+            acceleration.y = 420;
 
         if (FlxG.keys.anyJustPressed([W, UP, SPACE]) && (timesJumped < allowedJumps || isTouching(FLOOR)))
         {
             if (timesJumped < allowedJumps)
             {
-                velocity.y = -0.6 * maxVelocity.y;
+                velocity.y = -jumpSpeed;
                 timesJumped++;
             }
         }

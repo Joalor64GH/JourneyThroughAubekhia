@@ -56,7 +56,7 @@ class PlayState extends FlxState
         walls.setTileProperties(2, ANY);
         add(walls);
 
-        scoreTxt = new FlxText(0, 0, 0, "Score: " + points + "\n" + "Coins: " + coins, 12);
+        scoreTxt = new FlxText(5, FlxG.height - 24, 0, "Score: " + points + " / " + "Coins: " + coins, 12);
         scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         scoreTxt.cameras = [camHUD];
         scoreTxt.scrollFactor.set();
@@ -106,6 +106,9 @@ class PlayState extends FlxState
             openSubState(new substates.PauseSubState());
             persistentUpdate = false;
         }
+
+        if (FlxG.keys.justPressed.R)
+            FlxG.resetState();
     }
 
     function touchCoin(player:Player, coin:Coin)
