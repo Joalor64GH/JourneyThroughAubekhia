@@ -31,17 +31,16 @@ class Main extends Sprite
 
 	public static var toast:ToastCore;
 
+	public static var fps:FPS;
+
 	public function new()
 	{
 		super();
 
 		addChild(new FlxGame(gameWidth, gameHeight, states.BootingState, #if (flixel < "5.0.0") -1, #end 60, 60, false, false));
 
-		var fps:FPS = new FPS(10, 3, 0xFFFFFF);
+		fps = new FPS(10, 3, 0xFFFFFF);
 		addChild(fps);
-		
-		if (fps != null && FlxG.save.data.fpsCounter != null)
-			fps.visible = FlxG.save.data.fpsCounter;
 
 		#if desktop
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);

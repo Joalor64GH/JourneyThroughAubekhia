@@ -30,9 +30,8 @@ class OptionsState extends FlxState
             group.add(optionTxt);
         }
 
-        text = new FlxText(curSelected + 30, 20, 0, "", 12);
+        text = new FlxText(curSelected + 250, 20, 0, "", 12);
         text.setFormat(Paths.font('vcr'), 20, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        text.scrollFactor.set();
         add(text);
 
         changeSelection();
@@ -48,6 +47,8 @@ class OptionsState extends FlxState
                 text.text = FlxG.save.data.fpsCounter;
             case "Fullscreen":
                 text.text = FlxG.save.data.fullScreen;
+            case "Language":
+                text.text = FlxG.save.data.lang;
             default:
                 text.text = "";
         }
@@ -67,6 +68,7 @@ class OptionsState extends FlxState
             {
                 case "FPS Counter":
                     FlxG.save.data.fpsCounter = !FlxG.save.data.fpsCounter;
+                    Main.fps.visible = FlxG.save.data.fpsCounter;
                 case "Fullscreen":
                     FlxG.save.data.fullScreen = !FlxG.save.data.fullScreen;
                     FlxG.fullscreen = FlxG.save.data.fullScreen;
@@ -93,6 +95,8 @@ class OptionsState extends FlxState
                 text.text = FlxG.save.data.fpsCounter;
             case "Fullscreen":
                 text.text = FlxG.save.data.fullScreen;
+            case "Language":
+                text.text = FlxG.save.data.lang;
             default:
                 text.text = "";
         }

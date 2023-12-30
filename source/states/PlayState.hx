@@ -123,7 +123,7 @@ class PlayState extends FlxState
         if (player.alive && player.exists && flag.alive && flag.exists)
         {
             FlxG.save.flush();
-            FlxG.switchState(new states.MainMenuState());
+            FlxG.switchState(new states.LevelSelectState());
             flag.animation.play("stop");
         }
     }

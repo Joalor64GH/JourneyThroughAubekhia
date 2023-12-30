@@ -30,6 +30,8 @@ class Player extends FlxSprite
 
         acceleration.y = 420; // nice
         drag.x = 400;
+        maxVelocity.x = 100;
+        maxVelocity.y = jumpSpeed * 2;
     }
 
     override public function update(elapsed:Float)
@@ -51,13 +53,19 @@ class Player extends FlxSprite
             turnRight(false);
         }
 
+        if (!isTouching(FLOOR))
+            acceleration.y = 420;
+
         if (isTouching(FLOOR))
             timesJumped = 0;
 
         if (FlxG.keys.anyJustPressed([W, UP, SPACE]) && (timesJumped < allowedJumps || isTouching(FLOOR)))
         {
-            velocity.y = -0.6 * maxVelocity.y;
-            timesJumped++;
+            if (timesJumped < allowedJumps)
+            {
+                velocity.y = -0.6 * maxVelocity.y;
+                timesJumped++;
+            }
         }
     }
 
