@@ -2,7 +2,6 @@ package props;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.math.FlxPoint;
 
 import util.Vector;
 
@@ -61,23 +60,6 @@ class Player extends FlxSprite
             timesJumped = 0;
         }
 
-        jump(elapsed);
-    }
-
-    function turnRight(flip:Bool = true):Bool
-    {
-        flipX = flip;
-        return flip;
-    }
-
-    function turnLeft(flip:Bool = false):Bool
-    {
-        flipX = flip;
-        return flip;
-    }
-
-    function jump(elapsed:Float)
-    {
         if (FlxG.keys.anyJustPressed([W, UP, SPACE]))
         {
             if ((velocity == 0) || (timesJumped < allowedJumps))
@@ -98,5 +80,17 @@ class Player extends FlxSprite
         }
         else
             jumpTime = -1.0;
+    }
+
+    function turnRight(flip:Bool = true):Bool
+    {
+        flipX = flip;
+        return flip;
+    }
+
+    function turnLeft(flip:Bool = false):Bool
+    {
+        flipX = flip;
+        return flip;
     }
 }
