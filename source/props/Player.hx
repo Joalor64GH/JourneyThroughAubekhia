@@ -62,7 +62,7 @@ class Player extends FlxSprite
 
         if (FlxG.keys.anyJustPressed([W, UP, SPACE]))
         {
-            if ((velocity == 0) || (timesJumped < allowedJumps))
+            if ((velocity.y == 0) || (timesJumped < allowedJumps))
             {
                 timesJumped++;
                 jumpTime = 0;
