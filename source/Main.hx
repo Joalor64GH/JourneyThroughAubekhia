@@ -30,7 +30,6 @@ class Main extends Sprite
 	public static var gameHeight:Int = 720;
 
 	public static var toast:ToastCore;
-
 	public static var fps:FPS;
 
 	public function new()

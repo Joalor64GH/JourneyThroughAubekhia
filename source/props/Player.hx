@@ -9,7 +9,8 @@ class Player extends FlxSprite
 {
     public var speed:Vector = new Vector(150, 0);
 
-    var jumpSpeed:Int = 250;
+    var jumpSpeed:Int = -250;
+    var jumpTime:Float = -1;
     var timesJumped:Int = 0;
     var allowedJumps:Int = 2;
 
@@ -31,7 +32,7 @@ class Player extends FlxSprite
         acceleration.y = 420; // nice
         drag.x = 400;
         maxVelocity.x = 100;
-        maxVelocity.y = jumpSpeed * 2;
+        maxVelocity.y = 400;
     }
 
     override public function update(elapsed:Float)
@@ -53,22 +54,13 @@ class Player extends FlxSprite
             turnRight(false);
         }
 
-        if (isTouching(FLOOR)) 
+        if (isTouching(FLOOR) && !FlxG.keys.anyJustPressed([W, UP, SPACE])) 
         {
+            jumpTime = -1;
             timesJumped = 0;
-            acceleration.y = 0;
         }
-        else
-            acceleration.y = 420;
 
-        if (FlxG.keys.anyJustPressed([W, UP, SPACE]) && (timesJumped < allowedJumps || isTouching(FLOOR)))
-        {
-            if (timesJumped < allowedJumps)
-            {
-                velocity.y = -jumpSpeed;
-                timesJumped++;
-            }
-        }
+        jump(elapsed);
     }
 
     function turnRight(flip:Bool = true):Bool
@@ -81,5 +73,29 @@ class Player extends FlxSprite
     {
         flipX = flip;
         return flip;
+    }
+
+    function jump(elapsed:Float)
+    {
+        if (FlxG.keys.anyJustPressed([W, UP, SPACE]))
+        {
+            if ((velocity == 0) || (timesJumped < allowedJumps))
+            {
+                timesJumped++;
+                jumpTime = 0;
+            }
+        }
+
+        if ((FlxG.keys.anyJustPressed([W, UP, SPACE])) && (jumpTime >= 0))
+        {
+            jumpTime += elapsed;
+
+            if (jumpTime > 0.25)
+                jumpTime = -1;
+            else if (jumpTime > 0)
+                velocity.y = -0.6 * maxVelocity.y;
+        }
+        else
+            jumpTime = -1.0;
     }
 }

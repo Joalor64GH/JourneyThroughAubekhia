@@ -9,7 +9,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 
 class OptionsState extends FlxState
 {
-    var options:Array<String> = ["FPS Counter", "Language", "Fullscreen"];
+    var options:Array<String> = ["FPS Counter", "Fullscreen", "Language"];
     
     var group:FlxTypedGroup<FlxText>;
     var curSelected:Int = 0;
@@ -47,8 +47,6 @@ class OptionsState extends FlxState
                 text.text = FlxG.save.data.fpsCounter;
             case "Fullscreen":
                 text.text = FlxG.save.data.fullScreen;
-            case "Language":
-                text.text = FlxG.save.data.lang;
             default:
                 text.text = "";
         }
@@ -95,8 +93,6 @@ class OptionsState extends FlxState
                 text.text = FlxG.save.data.fpsCounter;
             case "Fullscreen":
                 text.text = FlxG.save.data.fullScreen;
-            case "Language":
-                text.text = FlxG.save.data.lang;
             default:
                 text.text = "";
         }

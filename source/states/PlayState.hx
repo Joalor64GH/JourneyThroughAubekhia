@@ -14,6 +14,7 @@ import flixel.FlxG;
 import props.Coin;
 import props.Flag;
 import props.Player;
+import props.Spike;
 
 class PlayState extends FlxState
 {
@@ -30,6 +31,7 @@ class PlayState extends FlxState
     var player:Player;
     var coin:FlxTypedGroup<Coin>;
     var flag:Flag;
+    var spike:Spike;
 
     var camHUD:FlxCamera;
 
@@ -125,6 +127,7 @@ class PlayState extends FlxState
     {
         if (player.alive && player.exists && flag.alive && flag.exists)
         {
+            points += 1000;
             FlxG.save.flush();
             FlxG.switchState(new states.LevelSelectState());
             flag.animation.play("stop");
