@@ -2,6 +2,7 @@ package props;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.math.FlxPoint;
 
 import util.Vector;
 
