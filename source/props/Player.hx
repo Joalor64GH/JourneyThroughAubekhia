@@ -2,17 +2,13 @@ package props;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-import util.Vector;
 
 class Player extends FlxSprite
 {
-    public var speed:Vector = new Vector(150, 0);
+    public var speed:Float = 150;
 
-    var jumpTimer:Float = 0;
-    var jumping:Bool = false;
-    var jumpDuration:Float = 0.25;
     var jumpImpulse:Float = -500;
-    var gravityAdjustment:Float = 300;
+    var gravity:Float = 900;
 
     public function new(x:Float, y:Float)
     {
@@ -28,7 +24,7 @@ class Player extends FlxSprite
         animation.add("dance", [2, 0], 12);
         animation.play("idle");
 
-        acceleration.y = 900;
+        acceleration.y = gravity;
         maxVelocity.y = 300;
     }
 
@@ -36,65 +32,21 @@ class Player extends FlxSprite
     {
         super.update(elapsed);
 
-        velocity.x = 0;
+        velocity.x = FlxG.keys.anyPressed([RIGHT, D]) ? speed : FlxG.keys.anyPressed([LEFT, A]) ? -speed : 0;
 
-        var right:Bool = FlxG.keys.anyPressed([RIGHT, D]);
-        var left:Bool = FlxG.keys.anyPressed([LEFT, A]);
-        var up:Bool = FlxG.keys.anyJustPressed([W, UP, SPACE]);
-        var upHold:Bool = FlxG.keys.anyJustPressed([W, UP, SPACE]);
+        animation.play((velocity != 0) ? "walk" : "idle");
 
-        if (left)
-        {
-            velocity.x = -speed.dx;
-            turnLeft(true);
-            if (!jumping)
-                animation.play("walk");
-        }
-        else if (right)
-        {
-            velocity.x = speed.dx;
-            turnRight(false);
-            if (!jumping)
-                animation.play("walk");
-        }
-        else 
-        {
-            if (!jumping)
-                animation.play("idle");
-        }
-
-        if (isTouching(DOWN) && !jumping) 
-            jumpTimer = 0;
-
-        if (up && isTouching(DOWN))
+        if (isTouching(DOWN) && FlxG.keys.anyJustPressed([W, UP, SPACE]))
         {
             velocity.y = jumpImpulse;
-            jumpTimer = 0;
-            jumping = true;
             animation.play("jump", true);
         }
 
-        if (jumping && jumpTimer >= 0 && jumpTimer < jumpDuration && upHold)
-        {
-            jumpTimer += elapsed;
-            velocity.y = jumpImpulse + (gravityAdjustment * jumpTimer * jumpTimer);
-        }
-        else 
-        {
-            jumpTimer = -1;
-            jumping = false;
-        }
-    }
+        if (!isTouching(DOWN))
+            velocity.y += gravity * elapsed;
+        else
+            velocity.y = 0;
 
-    function turnRight(flip:Bool = true):Bool
-    {
-        flipX = flip;
-        return flip;
-    }
-
-    function turnLeft(flip:Bool = false):Bool
-    {
-        flipX = flip;
-        return flip;
+        velocity.y = FlxG.math.clamp(velocity.y, -maxVelocity.y, maxVelocity.y);
     }
 }
