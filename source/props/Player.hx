@@ -34,7 +34,7 @@ class Player extends FlxSprite
 
         velocity.x = FlxG.keys.anyPressed([RIGHT, D]) ? speed : FlxG.keys.anyPressed([LEFT, A]) ? -speed : 0;
 
-        animation.play((velocity != 0) ? "walk" : "idle");
+        animation.play((velocity.x != 0) ? "walk" : "idle");
 
         if (isTouching(DOWN) && FlxG.keys.anyJustPressed([W, UP, SPACE]))
         {
