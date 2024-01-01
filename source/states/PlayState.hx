@@ -102,7 +102,7 @@ class PlayState extends FlxState
         FlxG.overlap(player, flag, touchFlag);
         FlxG.overlap(player, spike, touchSpike);
 
-        player.animation.play((velocity.x != 0) ? "walk" : "idle");
+        player.animation.play((player.velocity.x != 0) ? "walk" : "idle");
         player.velocity.x = (FlxG.keys.anyPressed([LEFT, A])) ? -150 : (FlxG.keys.anyPressed([RIGHT, D])) ? 150 : 0;
 
         if (jumping && !FlxG.keys.anyJustPressed([W, UP, SPACE]))
@@ -123,7 +123,7 @@ class PlayState extends FlxState
         if (jumpTimer > 0 && jumpTimer < 0.25)
             player.velocity.y = -300;
 
-        if (FlxG.keys.justPressed.ESCAPE)
+        if (FlxG.keys.anyJustPressed([P, ESCAPE]))
         {
             openSubState(new substates.PauseSubState());
             persistentUpdate = false;
