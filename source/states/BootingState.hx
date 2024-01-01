@@ -14,7 +14,7 @@ class BootingState extends FlxState
         SaveData.init();
         Localization.loadLanguages(["de", "en", "es", "fr", "it"]);
 
-        FlxG.switchState(new states.LevelSelectState());
+        FlxG.switchState(new states.MainMenuState());
         super.create();
     }
 

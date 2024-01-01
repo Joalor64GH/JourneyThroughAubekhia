@@ -9,10 +9,8 @@ class Player extends FlxSprite
 {
     public var speed:Vector = new Vector(150, 0);
 
-    var jumpSpeed:Int = -250;
-    var jumpTime:Float = -1;
-    var timesJumped:Int = 0;
-    var allowedJumps:Int = 2;
+    var jumpTimer:Float = 0;
+    var jumping:Bool = false;
 
     public function new(x:Float, y:Float)
     {
@@ -29,10 +27,8 @@ class Player extends FlxSprite
 
         animation.play("idle");
 
-        acceleration.y = 420; // nice
-        drag.x = 400;
-        maxVelocity.x = 100;
-        maxVelocity.y = 400;
+        acceleration.y = 900;
+        maxVelocity.y = 300;
     }
 
     override public function update(elapsed:Float)
@@ -54,32 +50,22 @@ class Player extends FlxSprite
             turnRight(false);
         }
 
-        if (isTouching(FLOOR) && !FlxG.keys.anyJustPressed([W, UP, SPACE])) 
-        {
-            jumpTime = -1;
-            timesJumped = 0;
-        }
+        if (jumping && !FlxG.keys.anyJustPressed([W, UP, SPACE]))
+            jumping = false;
 
-        if (FlxG.keys.anyJustPressed([W, UP, SPACE]))
-        {
-            if ((velocity.y == 0) || (timesJumped < allowedJumps))
-            {
-                timesJumped++;
-                jumpTime = 0;
-            }
-        }
+        if (isTouching(FLOOR) && !jumping) 
+            jumpTimer = 0;
 
-        if ((FlxG.keys.anyJustPressed([W, UP, SPACE])) && (jumpTime >= 0))
+        if (FlxG.keys.anyJustPressed([W, UP, SPACE]) && jumpTimer >= 0)
         {
-            jumpTime += elapsed;
-
-            if (jumpTime > 0.25)
-                jumpTime = -1;
-            else if (jumpTime > 0)
-                velocity.y = -0.6 * maxVelocity.y;
+            jumping = true;
+            jumpTimer += elapsed;
         }
         else
-            jumpTime = -1.0;
+            jumpTimer = -1;
+
+        if (jumpTimer > 0 && jumpTimer < 0.25)
+            velocity.y = -300;
     }
 
     function turnRight(flip:Bool = true):Bool

@@ -9,12 +9,16 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.ui.FlxButton;
 import lime.app.Application;
 
 class MainMenuState extends FlxState
 {
     var logo:FlxSprite;
+
+    var groupBtn:FlxTypedGroup<FlxSprite>;
+    var btn:FlxSprite;
 
     override public function create()
     {

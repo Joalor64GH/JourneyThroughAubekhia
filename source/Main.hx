@@ -38,7 +38,7 @@ class Main extends Sprite
 
 		addChild(new FlxGame(gameWidth, gameHeight, states.BootingState, #if (flixel < "5.0.0") -1, #end 60, 60, false, false));
 
-		fps = new FPS(10, 3, 0xFFFFFF);
+		fps = new FPS(615, 3, 0xFFFFFF);
 		addChild(fps);
 
 		#if desktop
