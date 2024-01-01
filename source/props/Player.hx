@@ -47,6 +47,6 @@ class Player extends FlxSprite
         else
             velocity.y = 0;
 
-        velocity.y = FlxG.math.clamp(velocity.y, -maxVelocity.y, maxVelocity.y);
+        velocity.y = util.CoolUtil.clamp(velocity.y, -maxVelocity.y, maxVelocity.y);
     }
 }
