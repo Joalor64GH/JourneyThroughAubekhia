@@ -13,4 +13,8 @@ class CoolUtil
     inline static public function textSplit(path:String) {
         return [for (i in LimeAssets.getText(path).trim().split('\n')) i.trim()];
     }
+
+    inline public static function clamp(value:Float, min:Float, max:Float):Float {
+        return Math.max(min, Math.min(max, value));
+    }
 }

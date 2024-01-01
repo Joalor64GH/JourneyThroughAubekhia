@@ -39,7 +39,7 @@ class Player extends FlxSprite
         if (isTouching(DOWN) && FlxG.keys.anyJustPressed([W, UP, SPACE]))
         {
             velocity.y = jumpImpulse;
-            animation.play("jump", true);
+            animation.play("jump");
         }
 
         if (!isTouching(DOWN))
