@@ -51,7 +51,7 @@ class PlayState extends FlxState
         walls.setTileProperties(2, ANY);
         add(walls);
 
-        scoreTxt = new FlxText(5, FlxG.height - 24, 0, "Score: " + points + " - " + "Coins: " + coins, 12);
+        scoreTxt = new FlxText(10, 10, 0, "Score: " + points + " - " + "Coins: " + coins, 12);
         scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         scoreTxt.scrollFactor.set();
         add(scoreTxt);
@@ -106,6 +106,9 @@ class PlayState extends FlxState
 
         player.animation.play((player.velocity.x != 0) ? "walk" : "idle");
         player.velocity.x = (FlxG.keys.anyPressed([LEFT, A])) ? -150 : (FlxG.keys.anyPressed([RIGHT, D])) ? 150 : 0;
+
+        if (player.velocity.x != 0)
+            flipX = player.velocity.x < 0;
 
         if (jumping && !FlxG.keys.anyJustPressed([W, UP, SPACE]))
             jumping = false;

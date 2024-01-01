@@ -30,6 +30,6 @@ class MenuButton extends FlxSprite
         animation.add("quitS", [13]); 
         animation.add("quitP", [14]);
 
-        scale.set(3, 3); 
+        scale.set(12, 12); 
     }
 }
