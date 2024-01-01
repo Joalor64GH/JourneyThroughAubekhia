@@ -66,7 +66,8 @@ class OptionsState extends FlxState
             {
                 case "FPS Counter":
                     FlxG.save.data.fpsCounter = !FlxG.save.data.fpsCounter;
-                    Main.fps.visible = FlxG.save.data.fpsCounter;
+                    if (Main.fps != null)
+                        Main.fps.visible = FlxG.save.data.fpsCounter;
                 case "Fullscreen":
                     FlxG.save.data.fullScreen = !FlxG.save.data.fullScreen;
                     FlxG.fullscreen = FlxG.save.data.fullScreen;

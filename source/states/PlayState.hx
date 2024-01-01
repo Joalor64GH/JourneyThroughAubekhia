@@ -38,6 +38,8 @@ class PlayState extends FlxState
     {
         super.create();
 
+        FlxG.camera.zoom = 2.25;
+
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
         bg.scrollFactor.set();
         add(bg);
@@ -50,7 +52,7 @@ class PlayState extends FlxState
         add(walls);
 
         scoreTxt = new FlxText(5, FlxG.height - 24, 0, "Score: " + points + " - " + "Coins: " + coins, 12);
-        scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         scoreTxt.scrollFactor.set();
         add(scoreTxt);
 
@@ -93,7 +95,7 @@ class PlayState extends FlxState
     {
         super.update(elapsed);
 
-        scoreTxt.text = "Score: " + points + "\n" + "Coins: " + coins;
+        scoreTxt.text = "Score: " + points + " - " + "Coins: " + coins;
 
         FlxG.collide(player, walls);
         FlxG.camera.follow(player, PLATFORMER);
@@ -150,8 +152,10 @@ class PlayState extends FlxState
         {
             points += 1000;
             FlxG.save.flush();
-            FlxG.switchState(new states.LevelSelectState());
+            openSubState(new substates.LevelCompleteSubState());
+            persistentUpdate = true;
             flag.animation.play("stop");
+            player.animation.play("dance");
         }
     }
 
