@@ -19,7 +19,7 @@ class MainMenuState extends FlxState
     var logo:FlxSprite;
 
     var groupBtn:FlxTypedGroup<FlxSprite>;
-    var btnList:Array<String>["play", "options", "quit"];
+    var btnList:Array<String> = ["play", "options", "quit"];
     var curSelected:Int = 0;
 
     override public function create()
