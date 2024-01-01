@@ -108,7 +108,7 @@ class PlayState extends FlxState
         player.velocity.x = (FlxG.keys.anyPressed([LEFT, A])) ? -150 : (FlxG.keys.anyPressed([RIGHT, D])) ? 150 : 0;
 
         if (player.velocity.x != 0)
-            flipX = player.velocity.x < 0;
+            player.flipX = player.velocity.x < 0;
 
         if (jumping && !FlxG.keys.anyJustPressed([W, UP, SPACE]))
             jumping = false;
