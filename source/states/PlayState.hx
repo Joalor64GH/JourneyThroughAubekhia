@@ -39,7 +39,10 @@ class PlayState extends FlxState
 
         instance = this;
 
+        FlxG.camera.zoom = 2.25;
+
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
+        bg.scrollFactor.set();
         add(bg);
 
         map = new FlxOgmo3Loader(Paths.file('data/level.ogmo'), Paths.json('levels/lev1'));
@@ -51,6 +54,7 @@ class PlayState extends FlxState
 
         scoreTxt = new FlxText(5, FlxG.height - 24, 0, "Score: " + points + " - " + "Coins: " + coins, 12);
         scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreTxt.scrollFactor.set();
         add(scoreTxt);
 
         coin = new FlxTypedGroup<Coin>();
@@ -109,6 +113,7 @@ class PlayState extends FlxState
             points += 50;
             coins += 1;
             coin.kill();
+            FlxG.save.flush();
         }
     }
 

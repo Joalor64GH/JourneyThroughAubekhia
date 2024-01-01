@@ -2,7 +2,6 @@ package props;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-
 import util.Vector;
 
 class Player extends FlxSprite
@@ -11,6 +10,9 @@ class Player extends FlxSprite
 
     var jumpTimer:Float = 0;
     var jumping:Bool = false;
+    var jumpDuration:Float = 0.25;
+    var jumpImpulse:Float = -500;
+    var gravityAdjustment:Float = 300;
 
     public function new(x:Float, y:Float)
     {
@@ -20,7 +22,7 @@ class Player extends FlxSprite
 
         animation.add("idle", [0], 1);
         animation.add("walk", [1, 0], 12);
-        animation.add("jump", [3], 12);
+        animation.add("jump", [3], 0);
         animation.add("hurt", [4], 1);
         animation.add("oops", [5], 1);
         animation.add("dance", [2, 0], 12);
@@ -36,36 +38,52 @@ class Player extends FlxSprite
 
         velocity.x = 0;
 
-        animation.play((velocity.x != 0) ? "walk" : "idle");
+        var right:Bool = FlxG.keys.anyPressed([RIGHT, D]);
+        var left:Bool = FlxG.keys.anyPressed([LEFT, A]);
+        var up:Bool = FlxG.keys.anyJustPressed([W, UP, SPACE]);
+        var upHold:Bool = FlxG.keys.anyJustPressed([W, UP, SPACE]);
 
-        if (FlxG.keys.anyPressed([LEFT, A]))
+        if (left)
         {
             velocity.x = -speed.dx;
             turnLeft(true);
+            if (!jumping)
+                animation.play("walk");
         }
-        else if (FlxG.keys.anyPressed([RIGHT, D]))
+        else if (right)
         {
             velocity.x = speed.dx;
             turnRight(false);
+            if (!jumping)
+                animation.play("walk");
         }
-
-        if (jumping && !FlxG.keys.anyJustPressed([W, UP, SPACE]))
-            jumping = false;
+        else 
+        {
+            if (!jumping)
+                animation.play("idle");
+        }
 
         if (isTouching(DOWN) && !jumping) 
             jumpTimer = 0;
 
-        if (FlxG.keys.anyJustPressed([W, UP, SPACE]) && jumpTimer >= 0)
+        if (up && isTouching(DOWN))
         {
+            velocity.y = jumpImpulse;
+            jumpTimer = 0;
             jumping = true;
-            jumpTimer += elapsed;
-            animation.play("jump");
+            animation.play("jump", true);
         }
-        else
-            jumpTimer = -1;
 
-        if (jumpTimer > 0 && jumpTimer < 0.25)
-            velocity.y = -300;
+        if (jumping && jumpTimer >= 0 && jumpTimer < jumpDuration && upHold)
+        {
+            jumpTimer += elapsed;
+            velocity.y = jumpImpulse + (gravityAdjustment * jumpTimer * jumpTimer);
+        }
+        else 
+        {
+            jumpTimer = -1;
+            jumping = false;
+        }
     }
 
     function turnRight(flip:Bool = true):Bool
