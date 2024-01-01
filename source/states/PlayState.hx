@@ -18,8 +18,6 @@ import props.Spike;
 
 class PlayState extends FlxState
 {
-    public static var instance:PlayState = null;
-
     public var points:Int = FlxG.save.data.points;
     public var coins:Int = FlxG.save.data.coins;
 
@@ -33,13 +31,12 @@ class PlayState extends FlxState
     var flag:Flag;
     var spike:Spike;
 
+    var jumpTimer:Float = 0;
+    var jumping:Bool = false;
+
     override public function create()
     {
         super.create();
-
-        instance = this;
-
-        FlxG.camera.zoom = 2.25;
 
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
         bg.scrollFactor.set();
@@ -63,6 +60,9 @@ class PlayState extends FlxState
         flag = new Flag();
         add(flag);
 
+        spike = new Spike();
+        add(spike);
+
         map.loadEntities(placeEntities, 'entity');
     }
 
@@ -75,12 +75,17 @@ class PlayState extends FlxState
         {
             case "player":
                 add(player = new Player(x, y));
+                player.maxVelocity.y = 300;
+                player.acceleration.y = 900;
                 player.setPosition(x, y);
             case "coin":
                 coin.add(new Coin(x, y));
             case "flag":
                 flag.x = x;
                 flag.y = y;
+            case "spike":
+                spike.x = x;
+                spike.y = y;
         }
     }
 
@@ -95,6 +100,28 @@ class PlayState extends FlxState
 
         FlxG.overlap(player, coin, touchCoin);
         FlxG.overlap(player, flag, touchFlag);
+        FlxG.overlap(player, spike, touchSpike);
+
+        player.animation.play((velocity.x != 0) ? "walk" : "idle");
+        player.velocity.x = (FlxG.keys.anyPressed([LEFT, A])) ? -150 : (FlxG.keys.anyPressed([RIGHT, D])) ? 150 : 0;
+
+        if (jumping && !FlxG.keys.anyJustPressed([W, UP, SPACE]))
+            jumping = false;
+
+        if (player.isTouching(DOWN) && !jumping)
+            jumpTimer = 0;
+
+        if (jumpTimer >= 0 && FlxG.keys.anyJustPressed([W, UP, SPACE]))
+        {
+            jumping = true;
+            jumpTimer += elapsed;
+            player.animation.play("jump");
+        }
+        else
+            jumpTimer = -1;
+
+        if (jumpTimer > 0 && jumpTimer < 0.25)
+            player.velocity.y = -300;
 
         if (FlxG.keys.justPressed.ESCAPE)
         {
@@ -125,6 +152,14 @@ class PlayState extends FlxState
             FlxG.save.flush();
             FlxG.switchState(new states.LevelSelectState());
             flag.animation.play("stop");
+        }
+    }
+
+    function touchSpike(player:Player, spike:Spike)
+    {
+        if (player.alive && player.exists && spike.alive && spike.exists)
+        {
+            FlxG.resetState();
         }
     }
 }
