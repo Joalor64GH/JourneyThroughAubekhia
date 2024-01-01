@@ -18,8 +18,8 @@ class LevelCompleteSubState extends FlxSubState
         bg.alpha = 0.65;
         add(bg);
 
-        var text:FlxText = new FlxText(0, 0, 0, "Level Complete!\n\nPress any key to continue.", 64);
-        text.setFormat(Paths.font('vcr'), 10, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        var text:FlxText = new FlxText(0, 0, 0, "Level Complete!\n\nPress ENTER to continue.", 64);
+        text.setFormat(Paths.font('vcr'), 35, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.scrollFactor.set();
         text.screenCenter(XY);
         add(text);
@@ -29,7 +29,7 @@ class LevelCompleteSubState extends FlxSubState
     {
         super.update(elapsed);
 
-        if (FlxG.keys.justPressed.ANY)
+        if (FlxG.keys.justPressed.ENTER)
             FlxG.switchState(new states.LevelSelectState());
     }
 }

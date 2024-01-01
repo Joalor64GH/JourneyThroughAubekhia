@@ -19,7 +19,6 @@ import props.Spike;
 class PlayState extends FlxState
 {
     public var points:Int = FlxG.save.data.points;
-    public var coins:Int = FlxG.save.data.coins;
 
     var scoreTxt:FlxText;
 
@@ -38,7 +37,7 @@ class PlayState extends FlxState
     {
         super.create();
 
-        FlxG.camera.zoom = 2.25;
+        FlxG.camera.zoom = 2.95;
 
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
         bg.scrollFactor.set();
@@ -51,7 +50,7 @@ class PlayState extends FlxState
         walls.setTileProperties(2, ANY);
         add(walls);
 
-        scoreTxt = new FlxText(10, 10, 0, "Score: " + points + " - " + "Coins: " + coins, 12);
+        scoreTxt = new FlxText(10, 10, 0, "Score: " + points, 12);
         scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         scoreTxt.scrollFactor.set();
         add(scoreTxt);
@@ -95,7 +94,7 @@ class PlayState extends FlxState
     {
         super.update(elapsed);
 
-        scoreTxt.text = "Score: " + points + " - " + "Coins: " + coins;
+        scoreTxt.text = "Score: " + points;
 
         FlxG.collide(player, walls);
         FlxG.camera.follow(player, PLATFORMER);
@@ -143,7 +142,6 @@ class PlayState extends FlxState
         if (player.alive && player.exists && coin.alive && coin.exists)
         {
             points += 50;
-            coins += 1;
             coin.kill();
             FlxG.save.flush();
         }
@@ -158,7 +156,6 @@ class PlayState extends FlxState
             openSubState(new substates.LevelCompleteSubState());
             persistentUpdate = true;
             flag.animation.play("stop");
-            player.animation.play("dance");
         }
     }
 

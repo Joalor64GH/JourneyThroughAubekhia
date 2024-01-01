@@ -14,9 +14,6 @@ class SaveData
 
         if (FlxG.save.data.fullScreen == null)
             FlxG.save.data.fullScreen = false;
-        
-        if (FlxG.save.data.coins == null)
-            FlxG.save.data.coins = 0;
 
         if (FlxG.save.data.points == null)
             FlxG.save.data.points = 0;
