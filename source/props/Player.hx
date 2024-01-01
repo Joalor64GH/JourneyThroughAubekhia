@@ -20,11 +20,10 @@ class Player extends FlxSprite
 
         animation.add("idle", [0], 1);
         animation.add("walk", [1, 0], 12);
-        animation.add("jump", [2, 3], 12);
+        animation.add("jump", [3], 12);
         animation.add("hurt", [4], 1);
         animation.add("oops", [5], 1);
         animation.add("dance", [2, 0], 12);
-
         animation.play("idle");
 
         acceleration.y = 900;
@@ -53,13 +52,14 @@ class Player extends FlxSprite
         if (jumping && !FlxG.keys.anyJustPressed([W, UP, SPACE]))
             jumping = false;
 
-        if (isTouching(FLOOR) && !jumping) 
+        if (isTouching(DOWN) && !jumping) 
             jumpTimer = 0;
 
         if (FlxG.keys.anyJustPressed([W, UP, SPACE]) && jumpTimer >= 0)
         {
             jumping = true;
             jumpTimer += elapsed;
+            animation.play("jump");
         }
         else
             jumpTimer = -1;

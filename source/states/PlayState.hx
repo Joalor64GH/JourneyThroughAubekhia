@@ -1,13 +1,13 @@
 package states;
 
 import flixel.addons.editors.ogmo.FlxOgmo3Loader;
+import flixel.FlxCamera.FlxCameraFollowStyle;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.tile.FlxTilemap;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
-import flixel.tile.FlxTilemap;
-import flixel.FlxCamera;
-import flixel.FlxSprite;
 import flixel.FlxSubState;
+import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxG;
 
@@ -33,22 +33,13 @@ class PlayState extends FlxState
     var flag:Flag;
     var spike:Spike;
 
-    var camHUD:FlxCamera;
-
     override public function create()
     {
         super.create();
 
         instance = this;
 
-        camHUD = new FlxCamera();
-        camHUD.bgColor = 0;
-        FlxG.cameras.add(camHUD, false);
-
-        FlxG.camera.zoom = 2.25;
-
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
-        bg.scrollFactor.set();
         add(bg);
 
         map = new FlxOgmo3Loader(Paths.file('data/level.ogmo'), Paths.json('levels/lev1'));
@@ -60,8 +51,6 @@ class PlayState extends FlxState
 
         scoreTxt = new FlxText(5, FlxG.height - 24, 0, "Score: " + points + " - " + "Coins: " + coins, 12);
         scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        scoreTxt.cameras = [camHUD];
-        scoreTxt.scrollFactor.set();
         add(scoreTxt);
 
         coin = new FlxTypedGroup<Coin>();
@@ -98,7 +87,7 @@ class PlayState extends FlxState
         scoreTxt.text = "Score: " + points + "\n" + "Coins: " + coins;
 
         FlxG.collide(player, walls);
-        FlxG.camera.follow(player, LOCKON, 0.9);
+        FlxG.camera.follow(player, PLATFORMER);
 
         FlxG.overlap(player, coin, touchCoin);
         FlxG.overlap(player, flag, touchFlag);

@@ -6,6 +6,7 @@ import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import flixel.group.FlxGroup.FlxTypedGroup;
 
 class PauseSubState extends FlxSubState
 {
@@ -14,14 +15,11 @@ class PauseSubState extends FlxSubState
         super();
 
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLACK);
-        bg.scrollFactor.set();
         bg.alpha = 0.65;
         add(bg);
 
         var text:FlxText = new FlxText(0, 0, 0, "Paused?\n\nPress ENTER to resume.\nPress ESCAPE to return to menu.", 64);
-        text.setFormat(Paths.font('vcr'), 15, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        text.antialiasing = true;
-        text.scrollFactor.set();
+        text.setFormat(Paths.font('vcr'), 35, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.screenCenter(XY);
         add(text);
     }
