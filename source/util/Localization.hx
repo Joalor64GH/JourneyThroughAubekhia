@@ -51,7 +51,7 @@ class Localization
             #if sys
             jsonContent = File.getContent(path);
             #else
-            Assets.getText(path);
+            jsonContent = Assets.getText(path);
             #end
 
             currentLanguage = language;
