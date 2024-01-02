@@ -37,7 +37,7 @@ class PlayState extends FlxState
     {
         super.create();
 
-        FlxG.camera.zoom = 2.95;
+        FlxG.camera.zoom = 2.25;
 
         var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
         bg.scrollFactor.set();
@@ -51,7 +51,7 @@ class PlayState extends FlxState
         add(walls);
 
         scoreTxt = new FlxText(10, 10, 0, "Score: " + points, 12);
-        scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         scoreTxt.scrollFactor.set();
         add(scoreTxt);
 

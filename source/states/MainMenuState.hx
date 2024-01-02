@@ -23,7 +23,7 @@ class MainMenuState extends FlxState
 
     override public function create()
     {
-        logo = new FlxSprite(0, 60).loadGraphic(Paths.image('logo'));
+        logo = new FlxSprite(0, 45).loadGraphic(Paths.image('logo'));
         logo.screenCenter(X);
         logo.scale.set(2, 2);
         add(logo);
@@ -35,10 +35,8 @@ class MainMenuState extends FlxState
 
         for (i in 0...btnList.length)
         {
-            var totalWidth:Float = 0;
-            var button:MenuButton = new MenuButton((FlxG.width - totalWidth - (20 * i)) / 2, 200);
-            totalWidth += button.width;
-            totalWidth += 20;
+            var button:MenuButton = new MenuButton(0, 220);
+            button.x += (i - 1) * 20;
             button.ID = i;
             groupBtn.add(button);
         }
