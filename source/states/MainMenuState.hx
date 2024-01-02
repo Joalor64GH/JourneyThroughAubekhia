@@ -35,8 +35,10 @@ class MainMenuState extends FlxState
 
         for (i in 0...btnList.length)
         {
-            var button:MenuButton = new MenuButton((FlxG.width - button.width - (20 * i)) / 2, 200);
-            button.width += 20;
+            var totalWidth:Float = 0;
+            var button:MenuButton = new MenuButton((FlxG.width - totalWidth - (20 * i)) / 2, 200);
+            totalWidth += button.width;
+            totalWidth += 20;
             button.ID = i;
             groupBtn.add(button);
         }
