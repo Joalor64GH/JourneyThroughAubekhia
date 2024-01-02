@@ -1,7 +1,11 @@
 package util;
 
+#if sys
 import sys.io.File;
 import sys.FileSystem;
+#end
+
+import openfl.Assets;
 
 import flixel.FlxG;
 import haxe.Json;
@@ -43,12 +47,22 @@ class Localization
         var jsonContent:String;
         var path:String = Paths.file("languages/" + language + ".json");
 
-        if (FileSystem.exists(path)) {
+        if (FileAssets.exists(path)) {
+            #if sys
             jsonContent = File.getContent(path);
+            #else
+            Assets.getText(path);
+            #end
+
             currentLanguage = language;
         } else {
             trace("oops! file not found for: " + language + "!");
+            #if sys
             jsonContent = File.getContent(Paths.file("languages/" + DEFAULT_LANGUAGE + ".json"));
+            #else
+            jsonContent = Assets.getText(Paths.file("languages/" + DEFAULT_LANGUAGE + ".json"));
+            #end
+
             currentLanguage = DEFAULT_LANGUAGE;
         }
 
@@ -92,3 +106,5 @@ class Localization
         return Reflect.field(languageData, key);
     }
 }
+
+typedef FileAssets = #if sys FileSystem; #else openfl.Assets; #end
