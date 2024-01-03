@@ -1,12 +1,5 @@
 package substates;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.FlxSubState;
-import flixel.text.FlxText;
-import flixel.tweens.FlxTween;
-import flixel.tweens.FlxEase;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import ui.Locale;
 
 class LanguageSubState extends FlxSubState

@@ -1,10 +1,5 @@
 package props;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.tweens.FlxTween;
-import flixel.tweens.FlxEase;
-
 class Coin extends FlxSprite
 {
     public function new(x:Float = 0, y:Float = 0)

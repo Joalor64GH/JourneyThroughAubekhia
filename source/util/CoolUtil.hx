@@ -1,9 +1,9 @@
 package util;
 
-import flixel.FlxG;
 import openfl.utils.Assets as OpenFlAssets;
 import lime.utils.Assets as LimeAssets;
 
+// epic functions!!
 class CoolUtil
 {
     inline public static function getText(path:String):Array<String> {

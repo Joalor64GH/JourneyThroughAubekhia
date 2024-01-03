@@ -1,12 +1,5 @@
 package states;
 
-import flixel.FlxG;
-import flixel.FlxState;
-import flixel.FlxSprite;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.util.FlxTimer;
-
 class BootingState extends FlxState
 {
     override public function create()

@@ -1,9 +1,9 @@
 package util;
 
+#if sys
 import sys.io.File;
 import sys.FileSystem;
-
-import flixel.FlxG;
+#end
 import haxe.Json;
 
 /**

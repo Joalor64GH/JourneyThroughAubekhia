@@ -1,7 +1,5 @@
 package ui;
 
-import flixel.FlxSprite;
-
 class MenuButton extends FlxSprite
 {
     public function new(x:Float = 0, y:Float = 0)

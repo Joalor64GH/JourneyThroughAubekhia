@@ -1,7 +1,5 @@
 package props;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
 import util.Vector;
 
 class Player extends FlxSprite

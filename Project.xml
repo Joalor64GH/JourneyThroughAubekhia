@@ -3,7 +3,7 @@
 
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Journey Through Aubekhia" file="Journey" main="Main" version="0.2.5a" company="Joalor64GH" />
+	<app title="Journey Through Aubekhia" file="Journey" main="Main" version="0.2.5b" company="Joalor64GH" />
 
 	<app preloader="flixel.system.FlxPreloader" />
 	<set name="SWF_VERSION" value="11.8" />
@@ -31,9 +31,7 @@
 	<set name="BUILD_DIR" value="export/release" unless="debug" />
 
 	<source path="source" />
-
-	<assets path="assets" exclude="*.mp3" if="desktop" />
-	<assets path="assets" exclude="*.ogg" unless="desktop" />
+	<assets path="assets" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 

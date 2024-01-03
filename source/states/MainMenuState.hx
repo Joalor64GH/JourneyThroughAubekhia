@@ -1,22 +1,11 @@
 package states;
 
-import flixel.FlxG;
-import flixel.FlxState;
-import flixel.FlxSprite;
-import flixel.FlxSubState;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.util.FlxTimer;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.group.FlxGroup.FlxTypedGroup;
-import lime.app.Application;
 import ui.MenuButton;
 
 class MainMenuState extends FlxState
 {
     var logo:FlxSprite;
-
+    
     var groupBtn:FlxTypedGroup<FlxSprite>;
     var btnList:Array<String> = ["play", "options", "quit"];
     var curSelected:Int = 0;

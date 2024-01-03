@@ -1,12 +1,6 @@
 package substates;
 
-import flixel.FlxG;
-import flixel.FlxState;
-import flixel.FlxSprite;
-import flixel.FlxSubState;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.group.FlxGroup.FlxTypedGroup;
+import ui.MenuButton;
 
 class PauseSubState extends FlxSubState
 {

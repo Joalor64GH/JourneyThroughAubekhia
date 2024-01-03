@@ -1,7 +1,5 @@
 package util;
 
-import flixel.FlxG;
-
 class SaveData
 {
     public static function init()

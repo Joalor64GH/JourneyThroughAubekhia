@@ -1,11 +1,5 @@
 package states;
 
-import flixel.FlxG;
-import flixel.FlxState;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.group.FlxGroup.FlxTypedGroup;
-
 class LevelSelectState extends FlxState
 {
     var levels:Array<String> = ["Level 1", "Level 2", "Level 3"]; // for testing

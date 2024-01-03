@@ -1,8 +1,5 @@
 package props;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-
 class Spike extends FlxSprite
 {
     public function new(x:Float = 0, y:Float = 0)

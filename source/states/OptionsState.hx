@@ -1,12 +1,5 @@
 package states;
 
-import flixel.FlxG;
-import flixel.FlxState;
-import flixel.FlxSubState;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.group.FlxGroup.FlxTypedGroup;
-
 class OptionsState extends FlxState
 {
     var options:Array<String> = ["FPS Counter", "Fullscreen", "Language"];
@@ -76,7 +69,7 @@ class OptionsState extends FlxState
                     FlxG.fullscreen = FlxG.save.data.fullScreen;
                 /*
                 case "Language":
-                    openSubState(new LanguageSubState());
+                    openSubState(new substates.LanguageSubState());
                 */
             }
         }

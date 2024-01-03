@@ -1,7 +1,5 @@
 package ui;
 
-import flixel.FlxSprite;
-
 class Locale extends FlxSprite
 {
     public function new(x:Float, y:Float)

@@ -2,15 +2,8 @@ package states;
 
 import flixel.addons.editors.ogmo.FlxOgmo3Loader;
 import flixel.FlxCamera.FlxCameraFollowStyle;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tile.FlxTilemap;
-import flixel.util.FlxColor;
-import flixel.text.FlxText;
-import flixel.FlxSubState;
 import flixel.FlxCamera;
-import flixel.FlxSprite;
-import flixel.FlxState;
-import flixel.FlxG;
 
 import props.Coin;
 import props.Flag;
@@ -52,7 +45,7 @@ class PlayState extends FlxState
 
         FlxG.camera.zoom = 2.25;
 
-        var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, FlxColor.BLUE);
+        var bg:FlxSprite = new FlxSprite().makeGraphic(720, 720, 0xFF00FFFF);
         bg.scrollFactor.set();
         add(bg);
 

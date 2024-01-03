@@ -1,12 +1,4 @@
 # Journey Through Aubekhia
 
-This game is a major WIP. If you want to help, don't hesitate to DM me on Discord (p00p36).
-
-## Help Wanted
-
-* [ ] Coder
-* [ ] Composer
-* [ ] Artist
-* [ ] Tester
-
-BTW, I will credit you if you help.
+This game is a major WIP.
+If I ever finish this, it will be downloadable on [itch.io](https://joalor64.itch.io/).

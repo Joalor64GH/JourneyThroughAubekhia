@@ -1,11 +1,5 @@
 package substates;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.FlxSubState;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-
 class QuitSubState extends FlxSubState
 {
     public function new()
@@ -30,6 +24,7 @@ class QuitSubState extends FlxSubState
             close();
         else if (FlxG.keys.justPressed.ESCAPE)
         {
+            FlxG.save.flush();
             FlxG.camera.fade(FlxColor.BLACK, 0.5, false, function()
             {
                 Sys.exit(0);

@@ -1,6 +1,5 @@
 package display;
 
-import flixel.FlxG;
 import haxe.Timer;
 import openfl.events.Event;
 import openfl.text.TextField;
@@ -12,7 +11,6 @@ import openfl.display._internal.stats.DrawCallContext;
 #if flash
 import openfl.Lib;
 #end
-import lime.app.Application;
 
 /**
 	The FPS class provides an easy-to-use monitor to display

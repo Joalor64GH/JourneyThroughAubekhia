@@ -1,8 +1,5 @@
 package props;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-
 class Flag extends FlxSprite
 {
     public static var flagSuffix:String = "AB"; // for future use

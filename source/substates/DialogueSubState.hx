@@ -1,11 +1,5 @@
 package substates;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.FlxSubState;
-
 class DialogueSubState extends FlxSubState
 {
     var box:FlxSprite;

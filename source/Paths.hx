@@ -1,13 +1,11 @@
 package;
 
-import flixel.FlxG;
 import openfl.utils.Assets as OpenFlAssets;
 import flixel.graphics.frames.FlxAtlasFrames;
 
 class Paths
 {
 	inline public static final SOUND_EXT = #if !html5 "ogg" #else "mp3" #end;
-	inline public static final FONT_EXT = #if !html5 "ttf" #else "woff" #end;
 
 	static var currentLevel:String;
 
@@ -57,7 +55,7 @@ class Paths
 
 	inline static public function font(key:String)
 	{
-		return file('fonts/$key.$FONT_EXT');
+		return file('fonts/$key.ttf');
 	}
 
 	inline static public function getSparrowAtlas(key:String)

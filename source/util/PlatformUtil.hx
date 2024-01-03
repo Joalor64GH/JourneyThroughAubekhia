@@ -1,6 +1,6 @@
 package util;
 
-class PlatformUtils 
+class PlatformUtil
 {
     public static var buildTarget:Array<String> = [];
 
