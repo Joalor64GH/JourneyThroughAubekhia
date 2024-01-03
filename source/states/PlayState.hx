@@ -23,8 +23,8 @@ class PlayState extends FlxState
 
     var player:Player;
     var coin:FlxTypedGroup<Coin>;
+    var spike:FlxTypedGroup<Spike>;
     var flag:Flag;
-    var spike:Spike;
 
     var jumpTimer:Float = 0;
     var jumping:Bool = false;
@@ -68,7 +68,7 @@ class PlayState extends FlxState
         flag = new Flag();
         add(flag);
 
-        spike = new Spike();
+        spike = new FlxTypedGroup<Spike>();
         add(spike);
 
         map.loadEntities(placeEntities, 'entity');
@@ -92,8 +92,7 @@ class PlayState extends FlxState
                 flag.x = x;
                 flag.y = y;
             case "spike":
-                spike.x = x;
-                spike.y = y;
+                spike.add(new Spike(x, y));
         }
     }
 
