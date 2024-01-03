@@ -25,17 +25,12 @@ class Main extends Sprite
 {
 	public static var gameWidth:Int = 720;
 	public static var gameHeight:Int = 720;
-
 	public static var toast:ToastCore;
 	public static var fps:FPS;
 
 	public function new()
 	{
 		super();
-
-		#if windows
-		util.NativeUtil.enableDarkMode();
-		#end
 
 		addChild(new FlxGame(gameWidth, gameHeight, states.BootingState, #if (flixel < "5.0.0") -1, #end 60, 60, false, false));
 

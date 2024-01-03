@@ -5,6 +5,8 @@ import flixel.graphics.frames.FlxAtlasFrames;
 
 class Paths
 {
+	inline public static final SOUND_EXT = #if !html5 "ogg" #else "mp3" #end;
+	
 	static var currentLevel:String;
 
 	static public function file(file:String)
@@ -33,17 +35,17 @@ class Paths
 
 	inline static public function sound(key:String)
 	{
-		return file('sounds/$key.ogg');
+		return file('sounds/$key.$SOUND_EXT');
 	}
 
 	inline static public function soundRandom(key:String, min:Int, max:Int)
 	{
-		return file('sounds/$key${FlxG.random.int(min, max)}.ogg');
+		return file('sounds/$key${FlxG.random.int(min, max)}.$SOUND_EXT');
 	}
 
 	inline static public function music(key:String)
 	{
-		return file('music/$key.ogg');
+		return file('music/$key.$SOUND_EXT');
 	}
 
 	inline static public function image(key:String)
