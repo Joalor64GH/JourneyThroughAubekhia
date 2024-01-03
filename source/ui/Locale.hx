@@ -10,10 +10,10 @@ class Locale extends FlxSprite
 
         loadGraphic(Paths.image('locales'), true, 16, 16);
 
-        animation.add("deutsch", [0], 1);
-        animation.add("english", [1], 1);
-        animation.add("espanol", [2], 1);
-        animation.add("francais", [3], 1);
-        animation.add("italiano", [4], 1);
+        animation.add("deutsch", [0], 1); // german (germany)
+        animation.add("english", [1], 1); // english (united states)
+        animation.add("espanol", [2], 1); // spanish (spain)
+        animation.add("francais", [3], 1); // french (france)
+        animation.add("italiano", [4], 1); // italian (italy)
     }
 }

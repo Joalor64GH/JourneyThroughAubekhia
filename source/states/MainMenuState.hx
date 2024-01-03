@@ -35,7 +35,7 @@ class MainMenuState extends FlxState
 
         for (i in 0...btnList.length)
         {
-            var button:MenuButton = new MenuButton(0, 220);
+            var button:MenuButton = new MenuButton(0, 450);
             button.x += (i - 1) * 20;
             button.ID = i;
             groupBtn.add(button);

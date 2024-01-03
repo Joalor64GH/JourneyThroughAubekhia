@@ -7,6 +7,7 @@ import flixel.tile.FlxTilemap;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
 import flixel.FlxSubState;
+import flixel.FlxCamera;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxG;
@@ -33,9 +34,15 @@ class PlayState extends FlxState
     var jumpTimer:Float = 0;
     var jumping:Bool = false;
 
+    var camHUD:FlxCamera;
+
     override public function create()
     {
         super.create();
+
+        camHUD = new FlxCamera();
+        camHUD.bgColor = 0;
+        FlxG.cameras.add(camHUD, false);
 
         FlxG.camera.zoom = 2.25;
 
@@ -53,6 +60,7 @@ class PlayState extends FlxState
         scoreTxt = new FlxText(10, 10, 0, "Score: " + points, 12);
         scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         scoreTxt.scrollFactor.set();
+        scoreTxt.cameras = [camHUD];
         add(scoreTxt);
 
         coin = new FlxTypedGroup<Coin>();

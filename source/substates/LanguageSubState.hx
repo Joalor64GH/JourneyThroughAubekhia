@@ -4,11 +4,17 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.text.FlxText;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import ui.Locale;
 
 class LanguageSubState extends FlxSubState
 {
+    var langList:Array<String> = ["deutsch", "english", "espanol", "francais", "italiano"];
+    var daGroup:FlxTypedGroup<FlxSprite>;
+    var bg:FlxSprite;
+
     public function new()
     {
         super();
