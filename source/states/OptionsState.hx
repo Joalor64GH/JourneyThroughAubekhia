@@ -19,6 +19,9 @@ class OptionsState extends FlxState
     {
         super.create();
 
+        var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('bgOptions'));
+        add(bg);
+
         group = new FlxTypedGroup<FlxText>();
         add(group);
 

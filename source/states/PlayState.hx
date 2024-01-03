@@ -21,6 +21,8 @@ class PlayState extends FlxState
 {
     public var points:Int = FlxG.save.data.points;
 
+    public static var instance:PlayState;
+
     var scoreTxt:FlxText;
 
     var map:FlxOgmo3Loader;
@@ -39,6 +41,10 @@ class PlayState extends FlxState
     override public function create()
     {
         super.create();
+
+        openfl.system.System.gc();
+
+        instance = this;
 
         camHUD = new FlxCamera();
         camHUD.bgColor = 0;
@@ -127,7 +133,6 @@ class PlayState extends FlxState
         {
             jumping = true;
             jumpTimer += elapsed;
-            player.animation.play("jump");
         }
         else
             jumpTimer = -1;
@@ -143,6 +148,18 @@ class PlayState extends FlxState
 
         if (FlxG.keys.justPressed.R)
             FlxG.resetState();
+    }
+
+    override public function destroy()
+    {
+        instance = null;
+
+        coin = null;
+        flag = null;
+        player = null;
+        spike = null;
+
+        super.destroy();
     }
 
     function touchCoin(player:Player, coin:Coin)

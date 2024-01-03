@@ -14,6 +14,9 @@ class BootingState extends FlxState
         SaveData.init();
         Localization.loadLanguages(["de", "en", "es", "fr", "it"]);
 
+        var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('bgBoot'));
+        add(bg);
+
         var daText:FlxText = new FlxText(0, 350, 0, "Created by Joalor64\nMade with HaxeFlixel", 12);
         daText.setFormat(Paths.font('vcr'), 50, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
         daText.screenCenter(X);
@@ -25,6 +28,8 @@ class BootingState extends FlxState
         daLogo.screenCenter(X);
         daLogo.scale.set(8, 8);
         add(daLogo);
+
+        FlxG.camera.fade(FlxColor.BLACK, 0.33, true);
 
         super.create();
     }

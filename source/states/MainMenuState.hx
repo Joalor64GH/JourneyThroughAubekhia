@@ -23,6 +23,9 @@ class MainMenuState extends FlxState
 
     override public function create()
     {
+        var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('bgMain'));
+        add(bg);
+
         logo = new FlxSprite(0, 45).loadGraphic(Paths.image('logo'));
         logo.screenCenter(X);
         logo.scale.set(2, 2);

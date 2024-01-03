@@ -2,6 +2,8 @@ package props;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 
 class Coin extends FlxSprite
 {
@@ -12,7 +14,17 @@ class Coin extends FlxSprite
         loadGraphic(Paths.image('coin'), true, 16, 16);
 
         animation.add("floating", [0, 1, 2, 1], 12, true);
-
         animation.play("floating");
+    }
+
+    override function kill()
+    {
+        alive = false;
+        FlxTween.tween(this, {alpha: 0, y: y - 16}, 0.22, {ease: FlxEase.circOut, onComplete: finishKill});
+    }
+
+    function finishKill(_)
+    {
+        exists = false;
     }
 }

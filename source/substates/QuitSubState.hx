@@ -29,6 +29,11 @@ class QuitSubState extends FlxSubState
         if (FlxG.keys.justPressed.ENTER)
             close();
         else if (FlxG.keys.justPressed.ESCAPE)
-            Sys.exit(0);
+        {
+            FlxG.camera.fade(FlxColor.BLACK, 0.5, false, function()
+            {
+                Sys.exit(0);
+            });
+        }
     }
 }

@@ -36,6 +36,10 @@ class Main extends Sprite
 	{
 		super();
 
+		#if windows
+		util.NativeUtil.enableDarkMode();
+		#end
+
 		addChild(new FlxGame(gameWidth, gameHeight, states.BootingState, #if (flixel < "5.0.0") -1, #end 60, 60, false, false));
 
 		fps = new FPS(10, 3, 0xFFFFFF);

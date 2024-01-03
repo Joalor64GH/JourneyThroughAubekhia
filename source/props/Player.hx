@@ -2,9 +2,13 @@ package props;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import util.Vector;
 
 class Player extends FlxSprite
 {
+    public var direction:Vector = new Vector(0, 0);
+    public var speed:Vector = new Vector(0, 0);
+
     public function new(x:Float, y:Float)
     {
         super(x, y);
@@ -13,10 +17,14 @@ class Player extends FlxSprite
 
         animation.add("idle", [0], 1);
         animation.add("walk", [1, 0], 12);
-        animation.add("jump", [3], 0);
-        animation.add("hurt", [4], 1);
-        animation.add("oops", [5], 1);
-        animation.add("dance", [2, 0], 12);
         animation.play("idle");
+    }
+
+    override public function update(elapsed:Float)
+    {
+        super.update(elapsed);
+
+        this.x += direction.dx * speed.dx;
+        this.y += direction.dy * speed.dy;
     }
 }
