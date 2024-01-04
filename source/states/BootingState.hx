@@ -36,7 +36,7 @@ class BootingState extends FlxState
         add(daLogo);
 
         FlxG.camera.fade(FlxColor.BLACK, 0.33, true);
-        emitter.start(false, 1.0, 0.1);
+        emitter.start(false, 0.1, 1);
 
         super.create();
     }
