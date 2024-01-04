@@ -56,7 +56,7 @@ class PlayState extends FlxState
         walls.setTileProperties(2, ANY);
         add(walls);
 
-        scoreTxt = new FlxText(10, 10, 0, "Score: " + points, 12);
+        scoreTxt = new FlxText(5, FlxG.height - 24, 0, "Score: " + points, 12);
         scoreTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         scoreTxt.scrollFactor.set();
         scoreTxt.cameras = [camHUD];

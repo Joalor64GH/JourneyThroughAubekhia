@@ -1,5 +1,8 @@
 package states;
 
+import flixel.effects.particles.FlxEmitter;
+import flixel.effects.particles.FlxParticle;
+
 class BootingState extends FlxState
 {
     override public function create()
@@ -10,19 +13,30 @@ class BootingState extends FlxState
         var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('bgBoot'));
         add(bg);
 
+        var emitter:FlxEmitter = new FlxEmitter();
+
+        for (i in 0...20)
+        {
+            var p:FlxParticle = new FlxParticle();
+            p.loadGraphic(Paths.image('particle'));
+            p.exists = false;
+            emitter.add(p);
+        }
+
+        add(emitter);
+
         var daText:FlxText = new FlxText(0, 350, 0, "Created by Joalor64\nMade with HaxeFlixel", 12);
         daText.setFormat(Paths.font('vcr'), 50, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
         daText.screenCenter(X);
         add(daText);
 
-        var daLogo:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('haxeflixel'), true, 16, 16);
-        daLogo.animation.add("idle", [0], 1);
-        daLogo.animation.play("idle");
+        var daLogo:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('haxeflixel'), false, 16, 16);
         daLogo.screenCenter(X);
         daLogo.scale.set(8, 8);
         add(daLogo);
 
         FlxG.camera.fade(FlxColor.BLACK, 0.33, true);
+        emitter.start(false, 1, 0.1);
 
         super.create();
     }
@@ -38,5 +52,10 @@ class BootingState extends FlxState
                 FlxG.switchState(new states.MainMenuState());
             });
         });
+    }
+
+    override public function destroy()
+    {
+        super.destroy();
     }
 }
