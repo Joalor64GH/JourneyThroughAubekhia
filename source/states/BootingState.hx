@@ -30,8 +30,8 @@ class BootingState extends FlxState
         daText.screenCenter(X);
         add(daText);
 
-        var daLogo:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('haxeflixel'), false, 16, 16);
-        daLogo.screenCenter(X);
+        var daLogo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('haxeflixel'), false, 16, 16);
+        daLogo.screenCenter(XY);
         daLogo.scale.set(8, 8);
         add(daLogo);
 
@@ -52,10 +52,5 @@ class BootingState extends FlxState
                 FlxG.switchState(new states.MainMenuState());
             });
         });
-    }
-
-    override public function destroy()
-    {
-        super.destroy();
     }
 }
