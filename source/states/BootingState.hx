@@ -25,18 +25,18 @@ class BootingState extends FlxState
 
         add(emitter);
 
-        var daText:FlxText = new FlxText(0, 350, 0, "Created by Joalor64\nMade with HaxeFlixel", 12);
+        var daText:FlxText = new FlxText(0, 200, 0, "Created by Joalor64\nMade with HaxeFlixel", 12);
         daText.setFormat(Paths.font('vcr'), 50, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
         daText.screenCenter(X);
         add(daText);
 
         var daLogo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('haxeflixel'), false, 16, 16);
         daLogo.screenCenter(XY);
-        daLogo.scale.set(8, 8);
+        daLogo.scale.set(9, 9);
         add(daLogo);
 
         FlxG.camera.fade(FlxColor.BLACK, 0.33, true);
-        emitter.start(false, 0.1, 1);
+        emitter.start(false, 0.1);
 
         super.create();
     }

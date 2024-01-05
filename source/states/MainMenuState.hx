@@ -17,9 +17,9 @@ class MainMenuState extends FlxState
         var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('bgMain'));
         add(bg);
 
-        logo = new FlxSprite(0, 45).loadGraphic(Paths.image('logo'));
+        logo = new FlxSprite(0, 2220).loadGraphic(Paths.image('logo'));
         logo.screenCenter(X);
-        logo.scale.set(2, 2);
+        logo.scale.set(4, 4);
         add(logo);
 
         logoTween();
@@ -29,13 +29,13 @@ class MainMenuState extends FlxState
 
         for (i in 0...btnList.length)
         {
-            var button:MenuButton = new MenuButton(0, 450);
-            button.x += (i - 1) * 20;
+            var button:MenuButton = new MenuButton(500, 450);
+            button.x += (i - 1) * 60;
             button.ID = i;
             groupBtn.add(button);
         }
 
-        var versionTxt:FlxText = new FlxText(5, FlxG.height - 24, 0, "v$versii", 12);
+        var versionTxt:FlxText = new FlxText(5, FlxG.height - 24, 0, "v" + versii, 12);
         versionTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         versionTxt.scrollFactor.set();
         add(versionTxt);
