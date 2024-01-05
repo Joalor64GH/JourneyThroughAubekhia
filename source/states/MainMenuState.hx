@@ -4,6 +4,8 @@ import ui.MenuButton;
 
 class MainMenuState extends FlxState
 {
+    public static var versii:String = '0.2.5b';
+
     var logo:FlxSprite;
     
     var groupBtn:FlxTypedGroup<FlxSprite>;
@@ -33,7 +35,7 @@ class MainMenuState extends FlxState
             groupBtn.add(button);
         }
 
-        var versionTxt:FlxText = new FlxText(5, FlxG.height - 24, 0, "v" + Application.current.meta.get("version"), 12);
+        var versionTxt:FlxText = new FlxText(5, FlxG.height - 24, 0, "v$versii", 12);
         versionTxt.setFormat(Paths.font('vcr'), 26, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         versionTxt.scrollFactor.set();
         add(versionTxt);
@@ -93,7 +95,7 @@ class MainMenuState extends FlxState
         curSelected += change;
 
         if (curSelected < 0)
-            curSelected = groupBtn.length -1;
+            curSelected = groupBtn.length - 1;
         if (curSelected >= groupBtn.length)
             curSelected = 0;
         

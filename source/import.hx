@@ -9,7 +9,6 @@ import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.group.FlxGroup.FlxTypedGroup;
-
 import lime.app.Application;
 
 import Paths;

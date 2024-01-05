@@ -13,5 +13,7 @@ class Locale extends FlxSprite
         animation.add("espanol", [2], 1); // spanish (spain)
         animation.add("francais", [3], 1); // french (france)
         animation.add("italiano", [4], 1); // italian (italy)
+
+        scale.set(12, 12);
     }
 }

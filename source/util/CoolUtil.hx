@@ -3,6 +3,8 @@ package util;
 import openfl.utils.Assets as OpenFlAssets;
 import lime.utils.Assets as LimeAssets;
 
+using StringTools;
+
 // epic functions!!
 class CoolUtil
 {
@@ -14,7 +16,11 @@ class CoolUtil
         return [for (i in LimeAssets.getText(path).trim().split('\n')) i.trim()];
     }
 
-    inline public static function clamp(value:Float, min:Float, max:Float):Float {
-        return Math.max(min, Math.min(max, value));
+    inline public static function browserLoad(site:String) {
+        #if linux
+        Sys.command('/usr/bin/xdg-open', [site]);
+        #else
+        FlxG.openURL(site);
+        #end
     }
 }

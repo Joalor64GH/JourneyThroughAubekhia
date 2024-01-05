@@ -6,7 +6,6 @@ import flixel.group.FlxSpriteGroup;
 using StringTools;
 
 // Kind of based off of FNF
-
 class Alphabet extends FlxSpriteGroup
 {
     public var text:String = "";

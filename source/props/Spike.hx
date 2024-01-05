@@ -9,7 +9,6 @@ class Spike extends FlxSprite
         loadGraphic(Paths.image('spike'), true, 16, 16);
 
         animation.add("idle", [0], 1, true);
-
         animation.play("idle");
     }
 }
